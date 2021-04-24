@@ -17,7 +17,7 @@ void DungeonRoom::roomChoice(int rv, int pc)
 		shopChance();
 		//player.stepsTilBoss = player.stepsTilBoss - 2;
 	}
-	else //player.stepsTilBoss = player.stepsTilBoss - 1;
+	//else //player.stepsTilBoss = player.stepsTilBoss - 1;
 }
 
 bool DungeonRoom::shopChance()

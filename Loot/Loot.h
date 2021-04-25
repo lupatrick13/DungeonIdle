@@ -2,22 +2,27 @@
 #define LOOT_H_
 
 #include "LootComponent.h"
+
 #include <iostream>
 #include <string>
 
 class Loot : public LootComponent {
 public:
-	Loot(int weight, std::string name) : LootComponent(weight), drop(name) {}
+	Loot(int weight, std::string name) : LootComponent(weight), name(name) {}
 	virtual ~Loot() {}
 
 	virtual LootComponent *roll()
 	{
 		return this;
 	}
-	virtual void print() { std::cout << drop; }
+	virtual void print()
+	{
+		std::cout << "Found ";
+
+	}
 	virtual void add(LootComponent *child) {}
 private:
-	std::string drop;
+	std::string name;
 };
 
 #endif /* LOOT_H_ */

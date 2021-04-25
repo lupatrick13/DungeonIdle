@@ -19,12 +19,12 @@
 class LootTable : public LootComponent
 {
 public:
-	LootTable(int weight, std::string name) : LootComponent(weight), droptable(name){}
+	LootTable(int weight, std::string name) : LootComponent(weight), name(name){}
 	virtual ~LootTable() {}
 
 	virtual LootComponent *roll()
 	{
-		std::cout << "Rolling table: " << droptable << std::endl;
+		std::cout << "Rolling table: " << name << std::endl;
 		int num_range = 0;
 		std::map<int, int> DropRates;
 		int index = 0;
@@ -55,10 +55,10 @@ public:
 		    return nullptr;
 		}
 	}
-	virtual void print() { std::cout << droptable; }
+	virtual void print() { std::cout << name; }
 	virtual void add(LootComponent *child) { children.push_back(child); }
 private:
-	std::string droptable;
+	std::string name;
 	std::vector<LootComponent *> children;
 };
 

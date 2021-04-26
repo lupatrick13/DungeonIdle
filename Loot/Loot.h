@@ -8,7 +8,7 @@
 
 class Loot : public LootComponent {
 public:
-	Loot(int weight, std::string name) : LootComponent(weight), name(name) {}
+	Loot(int weight, EquipmentFactory *eqp) : LootComponent(weight), eqp(eqp) {}
 	virtual ~Loot() {}
 
 	virtual LootComponent *roll()
@@ -20,9 +20,13 @@ public:
 		std::cout << "Found ";
 
 	}
+	virtual Equipment *generate()
+	{
+		return eqp->make_eqp();
+	}
 	virtual void add(LootComponent *child) {}
 private:
-	std::string name;
+	EquipmentFactory *eqp;
 };
 
 #endif /* LOOT_H_ */

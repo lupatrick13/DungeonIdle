@@ -9,6 +9,7 @@
 #define LOOT_LOOTTABLE_H_
 
 #include "LootComponent.h"
+#include "../util/RNG.h"
 #include <vector>
 #include <map>
 #include <algorithm>
@@ -40,11 +41,7 @@ public:
 		}
 		else
 		{
-		    std::random_device RNG;
-		    std::mt19937 generator(RNG());
-		    std::uniform_int_distribution<> distribution(0, num_range);
-		    int choice = distribution(generator);
-		    std::cout << "Choice : "<< choice << std::endl;
+		    int choice = RANDOM_INT(0, num_range);
 		    for(std::pair<int, int> item : DropRates)
 		    {
 		    	if(choice < item.second)
@@ -57,6 +54,7 @@ public:
 	}
 	virtual void print() { std::cout << name; }
 	virtual void add(LootComponent *child) { children.push_back(child); }
+	virtual Equipment *generate() {return nullptr; }
 private:
 	std::string name;
 	std::vector<LootComponent *> children;

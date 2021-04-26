@@ -7,6 +7,7 @@
 
 #ifndef LOOT_LOOTCOMPONENT_H_
 #define LOOT_LOOTCOMPONENT_H_
+#include "../Equipment/EqpFactory.h"
 
 class LootComponent {
 public:
@@ -16,6 +17,7 @@ public:
 	virtual LootComponent *roll() = 0;
 	virtual void add(LootComponent *child) = 0;
 	virtual void print() = 0;
+	virtual Equipment *generate() = 0;
 	int get_weight() { return weight; }
 
 protected:

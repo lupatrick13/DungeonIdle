@@ -14,7 +14,7 @@ using namespace std;
 
 int main()
 {
-	equip_test();
-	//testLootTable();
+	//equip_test();
+	testLootTable();
 }
 

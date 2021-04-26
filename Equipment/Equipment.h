@@ -11,37 +11,10 @@
 #include <vector>
 #include <map>
 #include <iostream>
-#include <random>
+#include "../util/RNG.h"
+#include "../util/EnumConverters.h"
 
-enum StatType : int
-{
-	DEX=2, STR=3, AGI=4, MAG=0,
-	ARMOR = 1, DMG = 5
-};
-std::string GET_TYPE(int type)
-{
-	switch(type)
-	{
-	case ARMOR:
-		return "ARMOR";
-	case DEX:
-		return "DEX";
-	case STR:
-		return "STR";
-	case AGI:
-		return "AGI";
-	case MAG:
-		return "MAG";
-	case DMG:
-		return "DMG";
-	}
-	return "DMG";
-}
-enum Rarity
-{
-	common = 0, rare = 2,
-	epic = 5, legendary = 20
-};
+using namespace std;
 
 class Equipment
 {
@@ -60,25 +33,19 @@ public:
 	Equipment(StatType type, Rarity rarity, std::string name, float value, float weight, int level): //type is only dmg or armor
 		rarity(rarity), base_name(name), value(value), level(level), weight(weight)
 	{
-
-	    std::random_device RNG;
-	    std::mt19937 generator(RNG());
-	    std::uniform_int_distribution<> distributionS(0, 5);
-	    std::uniform_int_distribution<> distributionV(0, 1 + level / 2);
-	    std::uniform_real_distribution<> distributionR(0, 1.5);
-		base_stat = std::make_pair(type, level * 100 * type * rarity * distributionR(RNG));
+		base_stat = std::make_pair(type, level * 10 * type * rarity * RANDOM_REAL(0,1.5));
 
 		for(int i =0; i<rarity; i++)
 		{
-			int type = distributionS(RNG);
-			int amt = distributionV(RNG);
+			int type = RANDOM_INT(0,5);
+			int amt = RANDOM_REAL(0, 1 + (float)level / 2);
 			if(type == DMG || type == ARMOR) amt *= 30;
 			additional[type] += amt;
 		}
 	}
 	virtual ~Equipment() {}
 
-	virtual std::string description() { return get_rarity()+ " " + base_name; }
+	virtual std::string description() { return GET_RARITY(rarity)+ " " + base_name; }
 	virtual float get_weight() { return weight; }
 	virtual float get_value() { return value; }
 	virtual std::pair<int, float> get_base_stat() { return base_stat; }
@@ -87,9 +54,11 @@ public:
 	void print()
 	{
 		cout << description() + "!" << endl;
-		cout << "Damage: " << base_stat.second << endl;
-		cout << "Bonus stats!" << endl;
+		cout << GET_TYPE(base_stat.first) << ": " << base_stat.second << endl;
+
 		map<int,float> additionals = get_additional();
+		if(additionals.size())
+			cout << "Bonus stats!" << endl;
 		for(pair<int, float> add : additionals)
 		{
 			if(add.second)
@@ -97,22 +66,6 @@ public:
 				cout << GET_TYPE(add.first) << ": " << add.second << " ";
 			}
 		}
-	}
-
-	std::string get_rarity()
-	{
-		switch(rarity)
-		{
-		case common:
-			return "common";
-		case rare:
-			return "rare";
-		case epic:
-			return "epic";
-		case legendary:
-			return "legendary";
-		}
-		return "common";
 	}
 
 protected:

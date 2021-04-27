@@ -15,7 +15,6 @@
 #include <algorithm>
 #include <functional>
 #include <iostream>
-#include <random>
 
 class LootTable : public LootComponent
 {

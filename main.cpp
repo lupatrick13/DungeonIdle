@@ -8,13 +8,13 @@
 //#include <iostream>
 //#include "Loot/LootTable.h"
 //#include "Loot/Loot.h"
-#include "Test/LootTableTest.h"
-#include "Test/EquipTest.h"
-using namespace std;
-
-int main()
-{
-	//equip_test();
-	testLootTable();
-}
-
+//#include "Test/LootTableTest.h"
+//#include "Test/EquipTest.h"
+//using namespace std;
+//
+//int main()
+//{
+//	//equip_test();
+//	testLootTable();
+//}
+//

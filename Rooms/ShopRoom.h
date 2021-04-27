@@ -1,4 +1,6 @@
 #pragma once
+
+#include "Room.h"
 class ShopRoom: public Room
 {
 private:

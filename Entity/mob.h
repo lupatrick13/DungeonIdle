@@ -17,7 +17,21 @@ public:
 	virtual ~mob() {}
 	MobType getMobType() { return mobType; }
 	string getMobName() { return mobName; }
-	Equipment *combat(entity *opponent);
+	int combatDMG() {
+		int mobDMG, totalDMG = 0;
+		if (mobType = REG) {
+			mobDMG = (DMG * RANDOM_INT(1, 5)) - (ARMOR * 0.5);
+			totalDMG = (mobDMG * (1 + (mobType / 100)));
+
+		}
+		else if (mobType = BOSS) {
+			mobDMG = (DMG * RANDOM_INT(1, 5) * 2) - (ARMOR * 0.5);
+			totalDMG = (mobDMG * (1 + (mobType / 100)));
+		}
+		return totalDMG;
+	}
+
+	//Equipment *combat(entity *opponent);
 
 };
 

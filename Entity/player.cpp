@@ -10,10 +10,6 @@ player::player() {
 
 }
 
-void player::getEXP() {
-	
-}
-
 void player::setEXP(int e) {
 	if (exp < levelUp) {
 		exp = exp + e;
@@ -25,12 +21,19 @@ void player::setEXP(int e) {
 	}
 }
 
-int player::getLevel() {
-	return level;
+
+
+/**
+
+
+Equipment* player::combat(entity* opponent) {
+	
+	
+	LoopComponent* dropped = droptable->roll();
+	return dropped->generate();
+
 }
 
-void player::setLevel() {
-
-}
+*/
 
 

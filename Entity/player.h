@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class player 
+class player: public entity
 {
 private:
 	int exp;
@@ -14,14 +14,26 @@ private:
 	int levelUp;
 	int statPoints;
 	int bossRoomCounter;
+	LootComponent* droptable;
+	Equipment* equipment;
 
 public:
 	player();
 	virtual ~player() {}
-	void getEXP();
+	int getEXP() {
+		return exp;
+	};
 	void setEXP(int e);
-	int getLevel();
-	void setLevel();
+	int getLevel() {
+		return level;
+	};
+	int combatDMG() {
+		int playerDMG = 0;
+		
+		playerDMG = (DMG *   )
+	}
+
+	//Equipment* combat(entity* opponent);
 
 };
 

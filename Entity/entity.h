@@ -1,6 +1,9 @@
 #ifndef ENTITY_H_
 #define ENTITY_H_
 #include "../Loot/LootComponent.h"
+#include "../util/RNG.h"
+#include "../Equipment/Equipment.h"
+#include <iostream>
 
 using namespace std;
 
@@ -21,7 +24,6 @@ public:
 	entity();
 	virtual ~entity() {}
 	void getStats();
-	void setStats();
 	virtual Equipment *combat(entity *opponent) {return nullptr;};
 
 };

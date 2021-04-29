@@ -3,9 +3,6 @@
 
 #include "LootComponent.h"
 
-#include <iostream>
-#include <string>
-
 class Loot : public LootComponent {
 public:
 	Loot(int weight, EquipmentFactory *eqp) : LootComponent(weight), eqp(eqp) {}

@@ -9,12 +9,6 @@
 #define LOOT_LOOTTABLE_H_
 
 #include "LootComponent.h"
-#include "../util/RNG.h"
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <functional>
-#include <iostream>
 
 class LootTable : public LootComponent
 {

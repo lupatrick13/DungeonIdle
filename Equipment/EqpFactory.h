@@ -8,8 +8,7 @@
 #ifndef EQUIPMENT_EQPFACTORY_H_
 #define EQUIPMENT_EQPFACTORY_H_
 
-#include "EquipmentHeaders.h"
-#include "../util/RNG.h"
+#include "EqpDecoratorP.h"
 
 class EquipmentFactory
 {

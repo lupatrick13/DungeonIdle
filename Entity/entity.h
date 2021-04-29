@@ -1,8 +1,6 @@
 #ifndef ENTITY_H_
 #define ENTITY_H_
-
-#include <string>
-#include <vector>
+#include "../Loot/LootComponent.h"
 
 using namespace std;
 
@@ -21,9 +19,10 @@ private:
 
 public:
 	entity();
+	virtual ~entity() {}
 	void getStats();
 	void setStats();
-	virtual void combat();
+	virtual Equipment *combat(entity *opponent) {return nullptr;};
 
 };
 

@@ -1,6 +1,7 @@
 
 #include "../Loot/LootTable.h"
 #include "../Loot/Loot.h"
+#include "../Entity/mob.h"
 
 using namespace std;
 void testLootTable()
@@ -33,15 +34,8 @@ void testLootTable()
 	LootComponent *emptyTable = new LootTable(2, "Aw man table!");
 	commonTable->add(emptyTable);
 
-	for(int i = 0; i< 100; i++)
-	{
-		LootComponent *result = commonTable->roll();
-		if(result == nullptr) std::cout << "Nothing";
-		else {
-			Equipment *loot = result->generate();
-			loot->print();
-		}
-		std::cout << "\nNext drop!\n";
+	entity *monstertest = new mob(REG, "Goblin", commonTable);
 
-	}
+	Equipment *lootdropped = monstertest->combat(monstertest);
+	lootdropped->print();
 }

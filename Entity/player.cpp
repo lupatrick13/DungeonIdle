@@ -7,16 +7,7 @@ player::player() {
 	levelUp = 0;
 	statPoints = 0;
 	bossRoomCounter = 0;
-	entity();
 
-}
-
-void player::getStats() {
-	entity::getStats; 
-}
-
-void player::setStats() {
-	entity::setStats;
 }
 
 void player::getEXP() {
@@ -42,9 +33,4 @@ void player::setLevel() {
 
 }
 
-void player::combat() {
-	/**
-	* if(
-	totalDMG = (weaponDMG * (1 + (weaponStat/100))) + (playerDMG * (1 + (playerStat/100)));
-	*/
-}
+

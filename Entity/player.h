@@ -1,10 +1,7 @@
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
-#include <string>
-#include <vector>
 #include "entity.h"
-#include "mob.h"
 
 
 using namespace std;
@@ -20,13 +17,11 @@ private:
 
 public:
 	player();
-	void getStats();
-	void setStats();
+	virtual ~player() {}
 	void getEXP();
 	void setEXP(int e);
 	int getLevel();
 	void setLevel();
-	void combat();
 
 };
 

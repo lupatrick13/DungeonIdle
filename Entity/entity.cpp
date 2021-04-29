@@ -1,5 +1,4 @@
 #include "entity.h"
-#include <iostream>
 
 
 entity::entity() {
@@ -16,7 +15,6 @@ entity::entity() {
 
 void entity::getStats() {
 	cout << HP, ARMOR, DMG, SPEED, DODGE, STR, MAGIC, AGILITY, DEX;
-
 }
 
 
@@ -30,8 +28,4 @@ void entity::setStats() {
 	MAGIC = 0;
 	AGILITY = 0;
 	DEX = 0;
-}
-
-void entity::combat() {
-
 }

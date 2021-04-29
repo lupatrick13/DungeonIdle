@@ -26,5 +26,10 @@ enum Rarity : int
 	epic = 5, legendary = 20
 };
 
-EqpPrefix ALL_PREFIX[3] = {perfect, sharp, none};
+enum MobType
+{
+	BOSS, REG
+};
+
+static EqpPrefix ALL_PREFIX[3] = {perfect, sharp, none};;
 #endif /* UTIL_ENUMERATIONHELPERS_H_ */

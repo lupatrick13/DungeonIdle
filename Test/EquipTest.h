@@ -26,6 +26,8 @@ void equip_test()
 	AmazingSword = new Sharp(AmazingSword);
 
 	AmazingSword->print();
+
+
 }
 
 

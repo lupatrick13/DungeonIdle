@@ -8,5 +8,6 @@ private:
 public:
 	void resetSteps();
 	void bossCount();
+	virtual Room *go_next_room() { return nullptr; }
 };
 

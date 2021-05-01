@@ -12,13 +12,18 @@ play_state BossRoom::play(int choice)
 		}
 		else if(random == 2)
 		{
+			loot["loot"] = "Dropped a [item name]!";
 			return play_state::LOOT;
 		}
 	}
 	else if(choice != -1)
 	{
-		std::cout << "Got loot! from choice: " << choice << std::endl;
 		return play_state::DONE;
 	}
 	return play_state::CONTINUE;
+}
+
+map<string, string> BossRoom::get_loot()
+{
+	return loot;
 }

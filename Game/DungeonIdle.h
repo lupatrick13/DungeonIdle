@@ -33,6 +33,7 @@ public:
 
 	void generate_choice();
 	room_type generate_room(int choice);
+	map<string, string> get_loot() { return curr_room->get_loot();}
 private:
 	Player *main;
 	Room *curr_room;

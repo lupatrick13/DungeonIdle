@@ -12,6 +12,7 @@ enum play_state
 {
 	OFFER, DONE, CONTINUE, LOOT
 };
+std::string GET_ROOM(room_type);
 class Room
 {
 public:
@@ -20,6 +21,7 @@ public:
 	virtual ~Room() {}
 	virtual play_state play(int choice = -1) { return play_state::CONTINUE; }
 	virtual room_type get_type() { return room_type::DUNGEON_S; }
+	virtual map<string, string> get_loot() =0;
 
 protected:
 	Player *main;

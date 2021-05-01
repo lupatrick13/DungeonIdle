@@ -35,6 +35,8 @@ void DungeonIdle::generate_choice()
 	else
 	{
 		choices.push_back(room_type::BOSS_S);
+		choices.push_back(room_type::BOSS_S);
+		choices.push_back(room_type::BOSS_S);
 		boss_cd = 10;
 	}
 	shop_chance = RANDOM_INT(1,24);

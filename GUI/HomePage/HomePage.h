@@ -8,18 +8,20 @@
 #ifndef GUI_HOMEPAGE_HOMEPAGE_H_
 #define GUI_HOMEPAGE_HOMEPAGE_H_
 
-#include <wx/wx.h>
-#include <wx/notebook.h>
+#include "DungeonState/AllStates.h"
 
 class HomePage: public wxPanel{
 public:
-	HomePage(wxNotebook *parent): wxPanel(parent, wxID_ANY)
+	HomePage(wxNotebook *parent, DungeonIdle *game): wxPanel(parent, wxID_ANY), game(game)
     {
         init();
     };
 	virtual ~HomePage() {}
 private:
 	void init();
+	DungeonIdle *game;
+	DungeonPanel *dungeon;
+	ChoicePanel *choice;
 };
 
 #endif /* GUI_HOMEPAGE_HOMEPAGE_H_ */

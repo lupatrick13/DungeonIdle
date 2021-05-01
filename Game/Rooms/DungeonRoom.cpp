@@ -15,6 +15,7 @@ play_state DungeonRoom::play(int choice)
 		}
 		else if(random == 2)
 		{
+			drop["loot"] = "Dropped a [item name]!";
 			return play_state::LOOT;
 		}
 	}
@@ -24,4 +25,9 @@ play_state DungeonRoom::play(int choice)
 		return play_state::DONE;
 	}
 	return play_state::CONTINUE;
+}
+
+map<string, string> DungeonRoom::get_loot()
+{
+	return drop;
 }

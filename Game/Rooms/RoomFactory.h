@@ -19,16 +19,16 @@ public:
 	RoomFactory();
 	virtual ~RoomFactory(){}
 
-	static Room* make_room(room_type which)
+	static Room* make_room(room_type which, Player *parent)
 	{
 		switch(which)
 		{
 		case room_type::SHOP_S:
-			return new ShopRoom();
+			return new ShopRoom(parent);
 		case room_type::DUNGEON_S:
-			return new DungeonRoom();
+			return new DungeonRoom(parent);
 		case room_type::BOSS_S:
-			return new BossRoom();
+			return new BossRoom(parent);
 		}
 		return nullptr;
 	}

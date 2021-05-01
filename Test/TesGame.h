@@ -39,10 +39,32 @@ void TesGame()
 		int choice;
 		cin >> choice;
 		game->generate_room(choice);
-
-		while(!game->play())
+		play_state curr_state = play_state::CONTINUE;
+		while(curr_state != play_state::DONE)
 		{
-			cout<< "THIS MANY TIMES" << endl;
+			if(curr_state == play_state::CONTINUE)
+			{
+				cout << "Continue!" << endl;
+				curr_state = game->play();
+			}
+			else if(curr_state == play_state::LOOT)
+			{
+				cout << "What loot number? " << endl;
+				int choice;
+				cin >> choice;
+				curr_state = game->play(choice);
+			}
+			else if(curr_state == play_state::OFFER)
+			{
+				cout << "What shop number? " << endl;
+				int choice;
+				cin >> choice;
+				curr_state = game->play(choice);
+			}
+			if(curr_state == play_state::DONE)
+			{
+				cout << "Done!" << endl;
+			}
 		}
 		cout << game->getBossCd() << " many steps til boss" << endl;
 	}

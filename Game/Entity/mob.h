@@ -19,12 +19,12 @@ public:
 	string getMobName() { return mobName; }
 	int combatDMG() {
 		int mobDMG, totalDMG = 0;
-		if (mobType = MobType::REG) {
+		if (mobType == MobType::REG) {
 			mobDMG = (DMG * RANDOM_INT(1, 5)) - (ARMOR * 0.5);
 			totalDMG = (mobDMG * (1 + (mobType / 100)));
 
 		}
-		else if (mobType = MobType::BOSS) {
+		else if (mobType == MobType::BOSS) {
 			mobDMG = (DMG * RANDOM_INT(1, 5) * 2) - (ARMOR * 0.5);
 			totalDMG = (mobDMG * (1 + (mobType / 100)));
 		}

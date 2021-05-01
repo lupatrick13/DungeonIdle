@@ -4,10 +4,10 @@
 class ShopRoom: public Room
 {
 public:
-	ShopRoom();
+	ShopRoom(Player* parent) : Room(parent) {};
 	virtual ~ShopRoom() {}
 	virtual room_type get_type(){ return room_type::SHOP_S; }
-	virtual bool play(int choice = 0) { return choice > 2; }
+	virtual play_state play(int choice = -1);
 private:
 	pair<int, int> heal;
 	pair<int, int> boost;

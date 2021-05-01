@@ -17,7 +17,7 @@ class DungeonIdle {
 public:
 	DungeonIdle();
 	virtual ~DungeonIdle() {}
-	bool play(int choice =0);
+	play_state play(int choice = -1);
 
 	void setRoomsCleared(int amt) { rooms_cleared = amt; }
 	void setBosses_defeated(int amt) { bosses_defeated = amt; }

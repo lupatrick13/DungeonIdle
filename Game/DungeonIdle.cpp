@@ -42,16 +42,16 @@ void DungeonIdle::generate_choice()
 
 room_type DungeonIdle::generate_room(int choice)
 {
-	curr_room = RoomFactory::make_room(choices[choice]);
+	curr_room = RoomFactory::make_room(choices[choice], main);
 	return choices[choice];
 }
 
-bool DungeonIdle::play(int choice)
+play_state DungeonIdle::play(int choice)
 {
-	bool status = curr_room->play(choice);
+	play_state status = curr_room->play(choice);
 
 	room_type type = curr_room->get_type();
-	if(type != room_type::SHOP_S && status)
+	if(type != room_type::SHOP_S && status == play_state::DONE)
 	{
 		if(type == room_type::BOSS_S)
 			bosses_defeated += 1;

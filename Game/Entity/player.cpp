@@ -1,16 +1,15 @@
 #include "player.h"
 #include <iostream>
 
-player::player() {
+Player::Player() {
 	exp = 0;
 	level = 0;
 	levelUp = 0;
 	statPoints = 0;
-	bossRoomCounter = 0;
-
+	set = make_pair(nullptr, nullptr);
 }
 
-void player::setEXP(int e) {
+void Player::setEXP(int e) {
 	if (exp < levelUp) {
 		exp = exp + e;
 	}

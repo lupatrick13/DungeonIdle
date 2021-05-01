@@ -1,7 +1,7 @@
 #include "mob.h"
 
-mob::mob(MobType mobType, string name, LootComponent *drops)
-: entity(), mobType(mobType), mobName(name), droptable(drops)
+Mob::Mob(MobType mobType, string name, LootComponent *drops)
+: Entity(), mobType(mobType), mobName(name), droptable(drops)
 {
 
 }

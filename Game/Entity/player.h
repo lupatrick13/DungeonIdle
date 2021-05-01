@@ -6,20 +6,18 @@
 
 using namespace std;
 
-class player: public entity
+class Player: public Entity
 {
 private:
 	int exp;
 	int level;
 	int levelUp;
 	int statPoints;
-	int bossRoomCounter;
-	LootComponent* droptable;
-	Equipment* equipment;
+	pair<Equipment*, Equipment*> set;
 
 public:
-	player();
-	virtual ~player() {}
+	Player();
+	virtual ~Player() {}
 	int getEXP() {
 		return exp;
 	};
@@ -30,7 +28,7 @@ public:
 	int combatDMG() {
 		int playerDMG = 0;
 		
-		playerDMG = (DMG *   )
+		return 5;
 	}
 
 	//Equipment* combat(entity* opponent);

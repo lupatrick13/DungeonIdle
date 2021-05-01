@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class mob: public entity
+class Mob: public Entity
 {
 private:
 	MobType mobType;
@@ -13,18 +13,18 @@ private:
 	LootComponent *droptable;
 
 public:
-	mob(MobType mobType, string name, LootComponent *drops);
-	virtual ~mob() {}
+	Mob(MobType mobType, string name, LootComponent *drops);
+	virtual ~Mob() {}
 	MobType getMobType() { return mobType; }
 	string getMobName() { return mobName; }
 	int combatDMG() {
 		int mobDMG, totalDMG = 0;
-		if (mobType = REG) {
+		if (mobType = MobType::REG) {
 			mobDMG = (DMG * RANDOM_INT(1, 5)) - (ARMOR * 0.5);
 			totalDMG = (mobDMG * (1 + (mobType / 100)));
 
 		}
-		else if (mobType = BOSS) {
+		else if (mobType = MobType::BOSS) {
 			mobDMG = (DMG * RANDOM_INT(1, 5) * 2) - (ARMOR * 0.5);
 			totalDMG = (mobDMG * (1 + (mobType / 100)));
 		}

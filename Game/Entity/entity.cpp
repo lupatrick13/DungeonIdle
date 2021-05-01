@@ -1,7 +1,7 @@
 #include "entity.h"
 
 
-entity::entity() {
+Entity::Entity() {
 	HP = 100;
 	ARMOR = 0;
 	DMG = 0;
@@ -13,8 +13,7 @@ entity::entity() {
 	DEX = 0;
 }
 
-void entity::getStats() {
-	cout << HP, ARMOR, DMG, SPEED, DODGE, STR, MAGIC, AGILITY, DEX << endl;
+void Entity::getStats() {
 }
 
 

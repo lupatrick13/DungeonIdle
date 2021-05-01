@@ -1,15 +1,15 @@
 #ifndef ENTITY_H_
 #define ENTITY_H_
 #include "../Loot/LootComponent.h"
-#include "../util/RNG.h"
+#include "../../util/RNG.h"
 #include "../Equipment/Equipment.h"
 #include <iostream>
 
 using namespace std;
 
-class entity
+class Entity
 {	
-private:
+protected:
 	int HP;
 	int ARMOR;
 	int DMG;
@@ -21,10 +21,10 @@ private:
 	int DEX;
 
 public:
-	entity();
-	virtual ~entity() {}
+	Entity();
+	virtual ~Entity() {}
 	void getStats();
-	virtual Equipment *combat(entity *opponent) {return nullptr;};
+	virtual Equipment *combat(Entity *opponent) {return nullptr;};
 
 };
 

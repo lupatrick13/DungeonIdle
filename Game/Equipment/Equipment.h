@@ -11,8 +11,8 @@
 #include <vector>
 #include <map>
 #include <iostream>
-#include "../util/RNG.h"
-#include "../util/EnumConverters.h"
+#include "../../util/RNG.h"
+#include "../../util/EnumConverters.h"
 
 using namespace std;
 

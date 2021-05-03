@@ -1,8 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Rooms"
+    "\\combat",
+    "\\Entity",
+    "\\Equipment",
+    "\\Loot",
+    "\\Rooms",
+    "\\Test",
+    "\\util"
   ],
-  "SelectedNode": "\\Rooms\\DungeonRoom.cpp",
+  "SelectedNode": "\\combat\\combat.h",
   "PreviewInSolutionExplorer": false
 }

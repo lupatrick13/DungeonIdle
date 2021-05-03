@@ -20,4 +20,4 @@ bool MainApp::OnInit()
     return true;
 }
 
-//wxIMPLEMENT_APP(MainApp);
+wxIMPLEMENT_APP(MainApp);

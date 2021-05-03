@@ -17,6 +17,7 @@ public:
             const wxPoint& pos, const wxSize& size);
 	virtual ~MainFrame() {}
 private:
+	DungeonIdle* game;
 	HomePage *home;
 	SettingsPage *settings;
 

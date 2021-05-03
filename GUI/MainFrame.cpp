@@ -12,7 +12,8 @@ MainFrame::MainFrame(const wxString& title,
 : wxFrame(NULL, wxID_ANY, title, pos, size), m_bookCtrl(new wxNotebook(this, wxID_ANY, wxDefaultPosition,
 		wxDefaultSize, wxNB_BOTTOM))
 {
-	home = new HomePage(m_bookCtrl);
+	game = new DungeonIdle();
+	home = new HomePage(m_bookCtrl, game);
 	m_bookCtrl->AddPage(home, wxString("Home"), true);
 
 	settings = new SettingsPage(m_bookCtrl);

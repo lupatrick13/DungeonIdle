@@ -5,14 +5,15 @@
  *      Author: patrick
  */
 
-#include <iostream>
-#include "Test/LootTableTest.h"
-#include "Test/EquipTest.h"
-using namespace std;
-
-int main()
-{
-	//equip_test();
-	testLootTable();
-}
+//#include <iostream>
+//#include "Test/LootTableTest.h"
+//#include "Test/EquipTest.h"
+//#include "Test/TesGame.h"
+//using namespace std;
+//
+//int main()
+//{
+//	//equip_test();
+//	TesGame();
+//}
 

@@ -1,7 +1,7 @@
 
-#include "../Loot/LootTable.h"
-#include "../Loot/Loot.h"
-#include "../Entity/mob.h"
+#include "../Game/Loot/LootTable.h"
+#include "../Game/Loot/Loot.h"
+#include "../Game/Entity/mob.h"
 
 using namespace std;
 void testLootTable()
@@ -34,8 +34,7 @@ void testLootTable()
 	LootComponent *emptyTable = new LootTable(2, "Aw man table!");
 	commonTable->add(emptyTable);
 
-	entity *monstertest = new mob(REG, "Goblin", commonTable);
+	Entity *monstertest = new Mob(REG, "Goblin", commonTable);
 
-	Equipment *lootdropped = monstertest->combat(monstertest);
-	lootdropped->print();
+	std::cout << "done" << std::endl;
 }

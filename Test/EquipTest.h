@@ -8,7 +8,7 @@
 #ifndef TEST_EQUIPTEST_H_
 #define TEST_EQUIPTEST_H_
 
-#include "../Equipment/EqpDecoratorP.h"
+#include "../Game/Equipment/EqpDecoratorP.h"
 
 using namespace std;
 

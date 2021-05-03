@@ -14,6 +14,7 @@ private:
 	int levelUp;
 	int statPoints;
 	int bossRoomCounter;
+	int stepsTilNextBoss;
 
 public:
 	player();
@@ -22,6 +23,9 @@ public:
 	void setEXP(int e);
 	int getLevel();
 	void setLevel();
+	int getSteps();
+	void setSteps(int steps);
+	int getBossRoomCounter();
 
 };
 

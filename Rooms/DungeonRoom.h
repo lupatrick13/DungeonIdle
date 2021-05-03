@@ -1,18 +1,19 @@
 #pragma once
 #include "Room.h"
+#include "entity.h"
+#include "mob.h"
+#include "player.h"
 
 class DungeonRoom: public Room
 {
 private:
-	int roomValue;
-	int playerChoice;
-	std::vector<Room *>generate_room(int num_rooms);
+	//mob DungeonMob; 
+	//std::vector<Room *>generate_room(int num_rooms);
 	//MobEntity Minion;
 public:
 	DungeonRoom();
+	virtual ~DungeonRoom();
 	void roomChoice(int rv, int pc);
-	bool shopChance();
-	void nextRoom();
-	virtual Room *go_next_room();
+	virtual Room next_room(int playerChoice);
 };
 

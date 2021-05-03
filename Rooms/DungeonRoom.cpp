@@ -2,35 +2,60 @@
 #include "Room.h"
 #include <stdio.h>     
 #include <stdlib.h>   
-#include <time.h> 
+#include <time.h>
+#include "RNG.h"
 
 DungeonRoom::DungeonRoom()
 {
-	roomValue = rand() % 3;
-	playerChoice = 0;
 	//MobEntity Minion random generator thing here;
+	
 }
 
-void DungeonRoom::roomChoice(int rv, int pc)
+#include "DungeonRoom.h"
+#include "Room.h"
+#include <stdio.h>     
+#include <stdlib.h>   
+#include <time.h>
+#include <iostream>
+#include "RNG.h"
+
+using namespace std;
+
+DungeonRoom::DungeonRoom()
 {
-	if (rv == pc) {
-		shopChance();
-		//player.stepsTilBoss = player.stepsTilBoss - 2;
-	}
-	//else //player.stepsTilBoss = player.stepsTilBoss - 1;
+	//MobEntity Minion random generator thing here;
+	
 }
 
-bool DungeonRoom::shopChance()
-{
-	int rng = rand() % 100;
+Room DungeonRoom::next_room(int playerChoice){
+		int playersteps = 1;
 
-	if (rng <= 25) {
-		//send player to shop
-	}
-	else return 0;
-}
+		if (playersteps == 0){
+			//int nextBoss = (player.getBossRoomCounter() * 5) + 20;
+			//player.setSteps(nextBoss);
+			cout << "To the Boss Room" << endl;
+			//send player to boss room
+		}
+		else{
+			int test = RANDOM_INT(1,3);
+			//generate 3 rooms and giv them values of 1-3
 
-void DungeonRoom::nextRoom()
-{
-	//send player to next room
+			if(playerChoice == test){
+				int rng = RANDOM_INT(1,100);
+				if (rng <= 99) {
+					//playerSteps = player.getSteps - 2;
+					//player.setSteps();
+				//send player to shop
+				cout << "To the shop" << endl;
+
+				Room generate_room();
+				}
+				else 
+					//playerSteps = player.getSteps - 1;
+					//player.setSteps(_)
+					//send player to next room
+					cout << "to next dungeon room" << endl;
+			}
+			cout << "to next dungeon room 2" << endl;
+		} 
 }

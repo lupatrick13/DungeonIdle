@@ -12,6 +12,7 @@ private:
 	//Equipment ShopEquip;
 public:
 	ShopRoom();
+	virtual ~ShopRoom();
 	void setHealPrice();
 	void getHealPrice();
 	void buyHeal();

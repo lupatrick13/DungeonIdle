@@ -33,4 +33,14 @@ void player::setLevel() {
 
 }
 
+int player::getSteps(){
+	return stepsTilNextBoss;
+}
 
+void player::setSteps(int steps){
+	stepsTilNextBoss = steps;
+}
+
+int player::getBossRoomCounter(){
+	return bossRoomCounter;
+}

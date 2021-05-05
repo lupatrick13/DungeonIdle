@@ -15,28 +15,28 @@ DungeonIdle::DungeonIdle()
 	bosses_defeated = 0;
 	main = new Player();
 	curr_room = nullptr;
+	choices.resize(3);
 }
 
 void DungeonIdle::generate_choice()
 {
-	choices.clear();
 	if(boss_cd)
 	{
 		for (int i = 0; i < 3; i++)
 		{
 			bool shop = RANDOM_INT(0,100) < shop_chance;
 			if(shop)
-				choices.push_back(room_type::SHOP_S);
+				choices[i] = room_type::SHOP_S;
 			else
-				choices.push_back(room_type::DUNGEON_S);
+				choices[i] = room_type::DUNGEON_S;
 		}
 		boss_cd--;
 	}
 	else
 	{
-		choices.push_back(room_type::BOSS_S);
-		choices.push_back(room_type::BOSS_S);
-		choices.push_back(room_type::BOSS_S);
+		choices[0] = room_type::BOSS_S;
+		choices[1] = room_type::BOSS_S;
+		choices[2] = room_type::BOSS_S;
 		boss_cd = 10;
 	}
 	shop_chance = RANDOM_INT(1,24);

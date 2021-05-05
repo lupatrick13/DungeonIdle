@@ -70,7 +70,7 @@ void ChoicePanel::handle_choice(int choice)
 {
 	if(curr_state == play_state::DONE)
 	{
-		game->generate_room(choices[choice]);
+		game->generate_room(choice);
 	    curr_state = game->play();
 	}
 	else if(curr_state == play_state::CONTINUE)
@@ -79,11 +79,11 @@ void ChoicePanel::handle_choice(int choice)
 	}
 	else if(curr_state == play_state::LOOT)
 	{
-		curr_state = game->play(choice + 1);
+		curr_state = game->play(choice+1);
 	}
 	else if(curr_state == play_state::OFFER)
 	{
-		curr_state = game->play(choice + 1);
+		curr_state = game->play(choice+1);
 	}
 	handle_buttonUI();
 	GetSizer()->Layout();

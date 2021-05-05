@@ -6,13 +6,20 @@
  */
 
 #include <iostream>
+<<<<<<< Updated upstream
 #include "Loot/LootTable.h"
 #include "Loot/Loot.h"
 
+=======
+#include "Test/LootTableTest.h"
+#include "Test/EquipTest.h"
+#include "Test/TesGame.h"
+>>>>>>> Stashed changes
 using namespace std;
 
 int main()
 {
+<<<<<<< Updated upstream
 	LootComponent *rareTable = new LootTable(1,"Rare Table");
 	LootComponent *commonTable = new LootTable(35,"Common Table");
 
@@ -42,5 +49,10 @@ int main()
 		std::cout << i << std::endl;
 
 	}
+=======
+	//equip_test();
+	//TesGame();
+    testLootTable();
+>>>>>>> Stashed changes
 }
 

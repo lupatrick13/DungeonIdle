@@ -1,15 +1,20 @@
 #include "player.h"
 #include <iostream>
 
-Player::Player() {
+player::player() {
 	exp = 0;
 	level = 0;
 	levelUp = 0;
 	statPoints = 0;
-	set = make_pair(nullptr, nullptr);
+	bossRoomCounter = 0;
+
 }
 
-void Player::setEXP(int e) {
+void player::getEXP() {
+	
+}
+
+void player::setEXP(int e) {
 	if (exp < levelUp) {
 		exp = exp + e;
 	}
@@ -20,19 +25,22 @@ void Player::setEXP(int e) {
 	}
 }
 
+int player::getLevel() {
+	return level;
+}
 
-
-/**
-
-
-Equipment* player::combat(entity* opponent) {
-	
-	
-	LoopComponent* dropped = droptable->roll();
-	return dropped->generate();
+void player::setLevel() {
 
 }
 
-*/
+int player::getSteps(){
+	return stepsTilNextBoss;
+}
 
+void player::setSteps(int steps){
+	stepsTilNextBoss = steps;
+}
 
+int player::getBossRoomCounter(){
+	return bossRoomCounter;
+}

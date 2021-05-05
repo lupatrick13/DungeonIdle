@@ -2,6 +2,7 @@
 class Room
 {
 public:
+<<<<<<< Updated upstream
 	Room();
 	virtual ~Room();
 	virtual Room next_room(int choice);
@@ -9,5 +10,13 @@ public:
 	virtual void generate_room();
 private:
 	int RoomValue;
+=======
+	Room(){}
+	virtual ~Room() {}
+	virtual Room *next_room(){
+		cout << "Where do you want to go?" << endl;
+	};
+	virtual void *generate_loot();
+>>>>>>> Stashed changes
 };
 

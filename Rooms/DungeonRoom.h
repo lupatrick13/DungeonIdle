@@ -11,6 +11,9 @@ private:
 	//std::vector<Room *>generate_room(int num_rooms);
 	//MobEntity Minion;
 public:
+	Room *next_room(){
+		
+	}
 	DungeonRoom();
 	virtual ~DungeonRoom();
 	void roomChoice(int rv, int pc);

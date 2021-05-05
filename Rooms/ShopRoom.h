@@ -12,13 +12,20 @@ private:
 	//Equipment ShopEquip;
 public:
 	ShopRoom();
+<<<<<<< Updated upstream
 	virtual ~ShopRoom();
 	void setHealPrice();
 	void getHealPrice();
+=======
+	Room *next_room(){
+		//send player back to previous room
+	};
+	void *generate_loot(){
+		
+	};
+>>>>>>> Stashed changes
 	void buyHeal();
 	void buyBoost();
-	void setBoostPrice();
-	void getBoostPrice();
 	void buyEquip();
 };
 

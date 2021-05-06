@@ -7,7 +7,7 @@
 
 using namespace std;
 
-pair<int, bool> combat(Player a, Mob b){
+pair<int, bool> combat(Player a, mob b){
 	bool dead = false;
 	int i = 0;
 
@@ -31,11 +31,15 @@ pair<int, bool> combat(Player a, Mob b){
 
 	if(nowPlayerHP > 0 && mobHP > 0 && dodge && atk2){
 		//nowPlayerHP = nowPlayerHP - mobDMG;
-		mobHP = mobHP - 2 * playerDMG;
+		//mobHP = mobHP - 2 * playerDMG;
+		mobHP = mobHP -  playerDMG;
+		combat(a, b);
 	}
 	else if(nowPlayerHP > 0 && mobHP > 0 && !dodge && atk2){
 		nowPlayerHP = nowPlayerHP - mobDMG;
-		mobHP = mobHP - 2 * playerDMG;
+		//mobHP = mobHP - 2 * playerDMG;
+		mobHP = mobHP - playerDMG;
+		combat(a,b); 
 	}
 	else if(nowPlayerHP > 0 && mobHP > 0 && dodge && !atk2){
 		//nowPlayerHP = nowPlayerHP - mobDMG;
@@ -52,12 +56,15 @@ pair<int, bool> combat(Player a, Mob b){
 	}
 	else if(mobHP <= 0){
 		cout << "Mob is dead" << endl;
+		mobLootDrop(b); // return loot function DungeonRoom->get_loot()
 		return;
 	}
 
 	//return i, dead;
 }
 
+Equipment *mobLootDrop(mob a){
 
+}
 
 #endif /* COMBAT_H_ */

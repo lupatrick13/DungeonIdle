@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class player: public entity
+class Player: public Entity
 {
 private:
 	int exp;
@@ -14,12 +14,13 @@ private:
 	int levelUp;
 	int statPoints;
 	int bossRoomCounter;
-	LootComponent* droptable;
-	Equipment* equipment;
+	int stepsTilNextBoss;
+	pair<Equipment*, Equipment*> set;
+	int gold;
 
 public:
-	player();
-	virtual ~player() {}
+	Player();
+	virtual ~Player() {}
 	int getEXP() {
 		return exp;
 	};
@@ -27,11 +28,55 @@ public:
 	int getLevel() {
 		return level;
 	};
-	int combatDMG() {
-		int playerDMG = 0;
-		
-		playerDMG = (DMG *   )
+	int getSteps(){
+		return stepsTilNextBoss;
 	}
+	void setSteps(int steps){
+		stepsTilNextBoss = steps;
+	}
+	int getBossRoomCounter(){
+		return bossRoomCounter;
+	}
+
+	int combatDMG(Equipment* weapon) {
+		int playerDMG = 0;
+		weapon->get_base_stat();
+		
+		
+		return 5;
+	}
+
+	void boostStats(int i){
+		stats[StatType::AGI] += i;
+		stats[StatType::ARMOR] += i;
+		stats[StatType::DEX] += i;
+		stats[StatType::STR] += i;
+		stats[StatType::AGI] += i;
+		stats[StatType::DMG] += i;
+		HP.first += i;
+		HP.second += i;
+		SPEED += i;
+		DODGE += i;
+	}
+
+	void setArmor(Equipment* a){
+		set.first = a;
+	}
+
+	void setWeapon(Equipment *a){
+		set.second = a;
+	}
+
+	void setGold(int i){
+		gold += i;
+	}
+
+	int getGold(){
+		return gold;
+	}
+
+
+
 
 	//Equipment* combat(entity* opponent);
 

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class mob: public entity
+class mob: public Entity
 {
 private:
 	MobType mobType;

@@ -7,28 +7,15 @@
 
 using namespace std;
 
-class entity
+class Entity
 {	
-<<<<<<< Updated upstream:Entity/entity.h
-private:
-	int HP;
-	int ARMOR;
-	int DMG;
-=======
 protected:
 	std::map<int, int> stats;
->>>>>>> Stashed changes:Game/Entity/entity.h
 	int SPEED;
 	int DODGE;
 	pair<int, int> HP;
 
 public:
-<<<<<<< Updated upstream:Entity/entity.h
-	entity();
-	virtual ~entity() {}
-	void getStats();
-	virtual Equipment *combat(entity *opponent) {return nullptr;};
-=======
 	Entity();
 	//virtual ~Entity() {}
 	map<int, int> getStats();
@@ -45,7 +32,6 @@ public:
 	int getDODGE(){
 		return DODGE;
 	}
->>>>>>> Stashed changes:Game/Entity/entity.h
 
 };
 

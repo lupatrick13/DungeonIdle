@@ -8,8 +8,3 @@
 
 using namespace std;
 
-Room::Room()
-{
-	roomValue = RANDOM_INT(1,3);
-	Player.player();
-}

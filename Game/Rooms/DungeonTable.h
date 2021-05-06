@@ -4,7 +4,7 @@
 #include "../Game/Entity/mob.h"
 
 using namespace std;
-Equipment * ShopTable(int level)
+Equipment * DungeonTable(int level)
 {
     int up = level+3;
     int lower = level-3;

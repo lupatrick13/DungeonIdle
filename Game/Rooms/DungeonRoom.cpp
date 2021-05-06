@@ -1,19 +1,21 @@
 #include "DungeonRoom.h"
 #include "Room.h"
+#include "DungeonTable.h"
 #include <stdio.h>     
 #include <stdlib.h>   
 #include <time.h> 
 
 play_state DungeonRoom::play(int choice)
 {
+	RoomMonster->generate_Mob();
 	if(choice == -1)
 	{
-		int random = RANDOM_INT(0,3);
-		if (random == 1)
+		if (!mobdead)
 		{
-			return play_state::DONE;
+			main->attack(DungeonMob);
+			return play_state::CONTINUE;
 		}
-		else if(random == 2)
+		else if(mobddead)
 		{
 			drop["loot"] = "Dropped a [item name]!";
 			return play_state::LOOT;
@@ -27,7 +29,18 @@ play_state DungeonRoom::play(int choice)
 	return play_state::CONTINUE;
 }
 
-map<string, string> DungeonRoom::get_loot()
+// map<string, string> DungeonRoom::get_loot()
+// {
+//     drop.insert(loot->description(),ShopEquip->description());
+// 	return drop;
+// }
+
+string DungeonRoom::getloot()
 {
-	return drop;
+	return loot->description();
+}
+
+void DungeonRoom::generate_loot()
+{
+	loot = DungeonTable(main->getLevel());
 }

@@ -90,8 +90,7 @@ void ShopRoom::generateBoost()
 
 void ShopRoom::generateEquip()
 {
-	Equipment shopeqp = ShopTable(main->getLevel());
-
+	ShopEquip = ShopTable(main->getLevel());
 }
 
 bool ShopRoom::checkGold(int choice)

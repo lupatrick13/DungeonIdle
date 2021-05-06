@@ -29,11 +29,10 @@ play_state DungeonRoom::play(int choice)
 	return play_state::CONTINUE;
 }
 
-// map<string, string> DungeonRoom::get_loot()
-// {
-//     drop.insert(loot->description(),ShopEquip->description());
-// 	return drop;
-// }
+map<string, string> DungeonRoom::get_loot()
+{
+	return drop;
+}
 
 string DungeonRoom::getloot()
 {

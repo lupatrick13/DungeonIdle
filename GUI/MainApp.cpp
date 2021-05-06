@@ -5,19 +5,19 @@
  *      Author: patrick
  */
 
-// #include "MainApp.h"
+#include "MainApp.h"
 
-// using namespace std;
+using namespace std;
 
-// bool MainApp::OnInit()
-// {
-//     cout << "OnInit: Initializing Idle app!" << endl;
+bool MainApp::OnInit()
+{
+    cout << "OnInit: Initializing Idle app!" << endl;
 
-//     MainFrame *frame = new MainFrame("RPS",
-//                                                  wxPoint(50, 50),
-//                                                  wxSize(400, 300) );
-//     frame->Show(true);
-//     return true;
-// }
+    MainFrame *frame = new MainFrame("RPS",
+                                                 wxPoint(50, 50),
+                                                 wxSize(400, 300) );
+    frame->Show(true);
+    return true;
+}
 
-// wxIMPLEMENT_APP(MainApp);
+wxIMPLEMENT_APP(MainApp);

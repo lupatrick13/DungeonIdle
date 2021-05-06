@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\combat",
+    "\\Entity",
+    "\\Equipment",
+    "\\Loot",
+    "\\Rooms",
+    "\\Test",
+    "\\util"
+  ],
+  "SelectedNode": "\\combat\\combat.h",
+  "PreviewInSolutionExplorer": false
+}

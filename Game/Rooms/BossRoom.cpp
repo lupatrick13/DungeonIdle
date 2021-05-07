@@ -1,18 +1,19 @@
 #include "BossRoom.h"
-
+#include "BossTable.h"
 
 play_state BossRoom::play(int choice)
 {
+	RoomMonster->generate_Mob();
 	if(choice == -1)
 	{
-		int random = RANDOM_INT(0,3);
-		if (random == 1)
+		if (!mobdead)
 		{
-			return play_state::DONE;
+			main->attack(DungeonMob);
+			return play_state::CONTINUE;
 		}
-		else if(random == 2)
+		else if(mobddead)
 		{
-			loot["loot"] = "Dropped a [item name]!";
+			drop["loot"] = "Dropped a [item name]!";
 			return play_state::LOOT;
 		}
 	}
@@ -25,5 +26,10 @@ play_state BossRoom::play(int choice)
 
 map<string, string> BossRoom::get_loot()
 {
-	return loot;
+	return drop;
+}
+
+void BossRoom::generate_loot()
+{
+	loot = BossTable(main->getLevel());
 }

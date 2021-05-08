@@ -8,7 +8,7 @@
 #ifndef GUI_HOMEPAGE_HOMEPAGE_H_
 #define GUI_HOMEPAGE_HOMEPAGE_H_
 
-#include "DungeonState/AllStates.h"
+#include "ChoicePanel.h"
 
 class HomePage: public wxPanel{
 public:
@@ -17,11 +17,11 @@ public:
         init();
     };
 	virtual ~HomePage() {}
+	void handle_choice(int choice2) { choice->handle_choice(choice2);}
+	ChoicePanel *choice;
 private:
 	void init();
 	DungeonIdle *game;
-	DungeonPanel *dungeon;
-	ChoicePanel *choice;
 };
 
 #endif /* GUI_HOMEPAGE_HOMEPAGE_H_ */

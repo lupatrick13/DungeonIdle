@@ -21,10 +21,10 @@ void EquipmentInfoPanel::init()
 
 	wxPanel *beginning_panel = new wxPanel(this, wxID_ANY);
 	wxSizer *beg_sizer = new wxBoxSizer(wxVERTICAL);
-	wxStaticText *modifiers = new wxStaticText(beginning_panel, wxID_ANY, wxString(mods));
-	wxStaticText *name_of_eqp = new wxStaticText(beginning_panel, wxID_ANY, wxString(name),
+	modifiers = new wxStaticText(beginning_panel, wxID_ANY, wxString(mods));
+	name_of_eqp = new wxStaticText(beginning_panel, wxID_ANY, wxString(name),
 			wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE_HORIZONTAL);
-	wxStaticText *level_of_eqp = new wxStaticText(beginning_panel, wxID_ANY, wxString("Lvl. " + to_string(level) + " "));
+	level_of_eqp = new wxStaticText(beginning_panel, wxID_ANY, wxString("Lvl. " + to_string(level) + " "));
 
 	name_of_eqp->SetForegroundColour(*RARITY_COLOUR(rarity));
 	modifiers->SetForegroundColour(*RARITY_COLOUR(rarity));
@@ -68,4 +68,30 @@ void EquipmentInfoPanel::init()
 	SetWindowStyle(wxBORDER_RAISED);
 	SetBackgroundColour(wxColor(169,169,169));
 	SetSizer(main_sizer);
+}
+
+void EquipmentInfoPanel::update(Equipment *neweqp)
+{
+	equip = neweqp;
+	map<int, float> additional_stats = equip->get_additional();
+	pair<int, float> base_stat = equip->get_base_stat();
+	int level = equip->get_level();
+	string eqp_value = to_string((int)equip->get_value());
+	string name = equip->get_name() + " ";
+	string mods = equip->description();
+	Rarity rarity = equip->get_rarity();
+
+	name_of_eqp->SetLabel(name);
+	name_of_eqp->SetForegroundColour(*RARITY_COLOUR(rarity));
+	modifiers->SetLabel(mods);
+	modifiers->SetForegroundColour(*RARITY_COLOUR(rarity));
+	value->SetLabel(eqp_value);
+	main_stat->SetLabel(wxString(to_string((int)base_stat.second)));
+	level_of_eqp->SetLabel(wxString(to_string(level)));
+
+	for(int i = 0; i < 6; i++)
+	{
+		additional_stat[i]->SetLabel(wxString(to_string((int)additional_stats[i])));
+	}
+
 }

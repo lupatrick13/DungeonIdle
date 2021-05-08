@@ -20,18 +20,16 @@ public:
         init();
     };
 	virtual ~ChoicePanel() {}
-	void on_one(wxCommandEvent& event);
-	void on_two(wxCommandEvent& event);
-	void on_zero(wxCommandEvent& event);
 
+	void handle_choice(int choice);
+
+	wxButton *choice_button[3];
 private:
 	DungeonIdle *game;
 	std::vector<room_type> choices;
 	play_state curr_state;
-	wxButton *choice_button[3];
 	wxStaticText *status_text;
 	void init();
-	void handle_choice(int choice);
 	void handle_buttonUI();
 };
 

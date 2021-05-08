@@ -11,7 +11,7 @@ public:
 	virtual map<string, string> get_loot();
 	pair<int,int> getHeal();
 	pair<int,int> getBoost();
-	Equipment * getEquip();
+	virtual Equipment * getEquip();
 	void generateHeal();
 	void generateBoost();
 	void generateEquip();

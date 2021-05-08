@@ -23,6 +23,8 @@ public:
 	virtual room_type get_type() { return room_type::DUNGEON_S; }
 	virtual map<string, string> get_loot() =0;
 	string get_Status(){return statusString;}
+	virtual Equipment * getLoot();
+	virtual Mob * getMob();
 protected:
 	Player *main;
 	Mob *RoomMonster;

@@ -15,6 +15,7 @@ public:
 	virtual room_type get_type() { return room_type::BOSS_S; }
 	virtual map<string, string> get_drop();
 	void generate_loot();
-	Equipment * getLoot();
+	virtual Equipment * getLoot();
+	virtual Mob * getMob();
 };
 

@@ -5,29 +5,23 @@
 
 using namespace std;
 
-class mob: public Entity
+class Mob: public Entity
 {
 private:
 	MobType mobType;
-	string mobName;
 	LootComponent *droptable;
 
 public:
-	mob(MobType mobType, string name, LootComponent *drops);
-	virtual ~mob() {}
+	Mob(MobType mobType, string name, LootComponent *drops, int level);
+	virtual ~Mob() {}
 	MobType getMobType() { return mobType; }
-	string getMobName() { return mobName; }
 	int combatDMG() {
 		int mobDMG, totalDMG = 0;
-		if (mobType = REG) {
-			mobDMG = (DMG * RANDOM_INT(1, 5)) - (ARMOR * 0.5);
-			totalDMG = (mobDMG * (1 + (mobType / 100)));
-
+		mobDMG = (DMG * RANDOM_INT(1, 5));	
+		if (mobType = BOSS) {
+			mobDMG *= 2;
 		}
-		else if (mobType = BOSS) {
-			mobDMG = (DMG * RANDOM_INT(1, 5) * 2) - (ARMOR * 0.5);
-			totalDMG = (mobDMG * (1 + (mobType / 100)));
-		}
+		totalDMG = (mobDMG * (1 + (mobType / 100)));
 		return totalDMG;
 	}
 

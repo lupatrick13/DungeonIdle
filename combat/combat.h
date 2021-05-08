@@ -7,58 +7,89 @@
 
 using namespace std;
 
-pair<int, bool> combat(Player a, mob b){
+pair<int, bool> combat(Player *a, Mob *b){
 	bool dead = false;
 	int i = 0;
 
-	int nowPlayerHP = a.getCurrentHP();
-	int maxPlayerHP = a.getMaxHP() ;
-	int playerDMG = a.combatDMG();
+	int nowPlayerHP = a->getCurrentHP();
+	int maxPlayerHP = a->getMaxHP() ;
+	int playerDMG = a->combatDMG();
 	
-	int dodgeChance = a.getDODGE();
-	bool dodge = false; 
-	if(dodgeChance * RANDOM_INT(1,5) > 100){
-		dodge = true;
-	} 
-	int atk2Chance = a.getSPEED();
-	bool atk2 = false;
-	if(atk2Chance * RANDOM_INT(1,5) > 100){
-		atk2 = true;
-	}
+	int dodgeChance = a->getDODGE();
+	bool dodge = dodgeChance * RANDOM_INT(1,5) > 100; 
+	
+	int atk2Chance = a->getSPEED();
+	bool atk2 = atk2Chance * RANDOM_INT(1,5) > 100;
+	
 
-	int mobHP = b.getCurrentHP();
-	int mobDMG = b.combatDMG();
+	int mobHP = b->getCurrentHP();
+	int mobDMG = b->combatDMG();
 
-	if(nowPlayerHP > 0 && mobHP > 0 && dodge && atk2){
-		//nowPlayerHP = nowPlayerHP - mobDMG;
-		//mobHP = mobHP - 2 * playerDMG;
-		mobHP = mobHP -  playerDMG;
-		combat(a, b);
+	cout << "Player HP: " << nowPlayerHP << "/" << maxPlayerHP << endl;
+	cout << "Player DMG: " << playerDMG << endl;
+	cout << "Dodge: " << dodge << "\t" << "Attack Twice: " << atk2 << endl;
+	cout << "Mob HP: " << mobHP << endl;
+	cout << "Mob DMG: " << mobDMG << endl;
+
+	if(nowPlayerHP > 0 && mobHP > 0){	
+			if(dodge && atk2){
+				//nowPlayerHP = nowPlayerHP - mobDMG;
+				//mobHP = mobHP - 2 * playerDMG;
+				b->setCurrentHP(mobHP - playerDMG);
+				cout << "Player attacked Mob for " << playerDMG << "DMG." << endl;
+				cout << "Mob HP: " << b->getCurrentHP();
+				cout << "Player dodges Mob attack. " << endl;
+				cout << "Player gets to attack twice. " << endl;
+				combat(a, b);
+				
+			}
+			else if(!dodge && atk2){
+				
+				//mobHP = mobHP - 2 * playerDMG;
+				b->setCurrentHP(mobHP - playerDMG);
+				cout << "Player attacked Mob for " << playerDMG << "DMG." << endl;
+				cout << "Mob HP: " << b->getCurrentHP();
+				if(b->getCurrentHP() > 0){
+					a->setCurrentHP(nowPlayerHP - mobDMG);
+				}
+				cout << "Mob attacked Player for " << mobDMG << "DMG." << endl;
+				cout << "Player HP: " << a->getCurrentHP();
+				cout << "Player gets to attack twice. " << endl;
+				combat(a,b); 
+			}
+			else if(dodge && !atk2){
+				//nowPlayerHP = nowPlayerHP - mobDMG;
+				b->setCurrentHP(mobHP - playerDMG);
+				cout << "Player attacked Mob for " << playerDMG << "DMG." << endl;
+				cout << "Mob HP: " << b->getCurrentHP();
+				cout << "Player dodges Mob attack. " << endl;
+			}
+			
+			else if(!dodge && !atk2){
+				b->setCurrentHP(mobHP - playerDMG);
+				cout << "Player attacked Mob for " << playerDMG << "DMG." << endl;
+				cout << "Mob HP: " << b->getCurrentHP();
+				if(b->getCurrentHP() > 0){
+					a->setCurrentHP(nowPlayerHP - mobDMG);
+				}
+				cout << "Mob attacked Player for " << mobDMG << "DMG." << endl;
+				cout << "Player HP: " << a->getCurrentHP();
+		
+			}
 	}
-	else if(nowPlayerHP > 0 && mobHP > 0 && !dodge && atk2){
-		nowPlayerHP = nowPlayerHP - mobDMG;
-		//mobHP = mobHP - 2 * playerDMG;
-		mobHP = mobHP - playerDMG;
-		combat(a,b); 
+	else{
+		if(nowPlayerHP <= 0){
+			dead = true; 
+			cout << "Player is dead" << endl;
+			return;
+		}
+		else if(mobHP <= 0){
+			cout << "Mob is dead" << endl;
+			mobLootDrop(b); // return loot function DungeonRoom->get_loot()
+			return;
+		}
 	}
-	else if(nowPlayerHP > 0 && mobHP > 0 && dodge && !atk2){
-		//nowPlayerHP = nowPlayerHP - mobDMG;
-		mobHP = mobHP - playerDMG;
-	}
-	else if(nowPlayerHP > 0 && mobHP > 0 && !dodge && !atk2){
-		nowPlayerHP = nowPlayerHP - mobDMG;
-		mobHP = mobHP - playerDMG;
-	}
-	else if(nowPlayerHP <= 0){
-		dead = true; 
-		cout << "Player is dead" << endl;
-		return;
-	}
-	else if(mobHP <= 0){
-		cout << "Mob is dead" << endl;
-		mobLootDrop(b); // return loot function DungeonRoom->get_loot()
-		return;
-	}
+	
 
 	//return i, dead;
 }

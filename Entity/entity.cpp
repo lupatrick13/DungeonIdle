@@ -1,7 +1,7 @@
 #include "entity.h"
 
 
-Entity::Entity() {
+Entity::Entity(int level, string name) : level(level), name(name) {
 	stats[StatType::MAG] = 0;
 	stats[StatType::ARMOR] = 0;
 	stats[StatType::DEX] = 0;

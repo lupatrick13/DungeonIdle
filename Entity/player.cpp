@@ -1,52 +1,29 @@
 #include "player.h"
 #include <iostream>
 
-Player::Player() {
+Player::Player() : Entity(level, name){
 	exp = 0;
-	level = 0;
-	levelUp = 0;
-	statPoints = 0;
-	bossRoomCounter = 0;
-<<<<<<< Updated upstream:Entity/player.cpp
-
-}
-
-void player::setEXP(int e) {
-=======
-	stepsTilNextBoss = 0;
-	Entity();
+	level = 1;
+	levelUp = 1;
+	//bossRoomCounter = 0;
+	set.first = nullptr;
+	set.second = nullptr;
 	gold = 0;
+
+	HP.first = 20;
+	HP.second = 20;
+	stats[StatType::DMG] = 5;
+
+
 }
 
 void Player::setEXP(int e) {
->>>>>>> Stashed changes:Game/Entity/player.cpp
 	if (exp < levelUp) {
 		exp = exp + e;
 	}
 	else if (exp >= levelUp) {
 		exp = exp + e;
-		statPoints = statPoints + 10;
 		levelUp = levelUp + 1;
 	}
 }
 
-<<<<<<< Updated upstream:Entity/player.cpp
-
-
-/**
-
-
-Equipment* player::combat(entity* opponent) {
-	
-	
-	LoopComponent* dropped = droptable->roll();
-	return dropped->generate();
-
-}
-
-*/
-
-
-=======
-
->>>>>>> Stashed changes:Game/Entity/player.cpp

@@ -11,7 +11,7 @@ using namespace std;
 
 bool MainApp::OnInit()
 {
-    cout << "OnInit: Initializing Idle app!" << endl;
+    cout << "OnInit: Initializing Idle!" << endl;
 
     MainFrame *frame = new MainFrame("RPS",
                                                  wxPoint(50, 50),

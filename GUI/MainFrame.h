@@ -9,7 +9,6 @@
 #define GUI_MAINFRAME_H_
 
 #include "HomePage/HomePage.h"
-#include "SettingsPage/SettingsPage.h"
 #include "PlayerStatPage/PlayerStatPage.h"
 
 class MainFrame: public wxFrame {
@@ -17,10 +16,12 @@ public:
 	MainFrame(const wxString& title,
             const wxPoint& pos, const wxSize& size);
 	virtual ~MainFrame() {}
+	void on_one(wxCommandEvent& event);
+	void on_zero(wxCommandEvent& event);
+	void on_two(wxCommandEvent& event);
 private:
 	DungeonIdle* game;
 	HomePage *home;
-	SettingsPage *settings;
 	PlayerStatPage *player_stats;
 
     wxNotebook *m_bookCtrl;

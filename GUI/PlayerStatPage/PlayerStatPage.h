@@ -19,6 +19,8 @@ public:
 		init();
 	};
 	virtual ~PlayerStatPage() {}
+	void update_armor(Equipment *neweqp){armor->update(neweqp); }
+	void update_weapon(Equipment *neweqp){weapon->update(neweqp); }
 private:
 	void init();
 	Player *main;

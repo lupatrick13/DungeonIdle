@@ -15,7 +15,7 @@ bool MainApp::OnInit()
 
     MainFrame *frame = new MainFrame("RPS",
                                                  wxPoint(50, 50),
-                                                 wxSize(400, 300) );
+                                                 wxSize(600, 400) );
     frame->Show(true);
     return true;
 }

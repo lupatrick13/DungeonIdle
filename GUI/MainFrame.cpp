@@ -16,6 +16,9 @@ MainFrame::MainFrame(const wxString& title,
 	home = new HomePage(m_bookCtrl, game);
 	m_bookCtrl->AddPage(home, wxString("Home"), true);
 
+	player_stats = new PlayerStatPage(m_bookCtrl, new Player());
+	m_bookCtrl->AddPage(player_stats, wxString("Player Stats"), false);
+
 	settings = new SettingsPage(m_bookCtrl);
 	m_bookCtrl->AddPage(settings, wxString("Settings"), false);
 }

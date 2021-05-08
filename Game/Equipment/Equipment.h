@@ -45,7 +45,10 @@ public:
 	}
 	virtual ~Equipment() {}
 
-	virtual std::string description() { return GET_RARITY(rarity)+ " " + base_name; }
+	std::string get_name() { return base_name; }
+	Rarity get_rarity() { return rarity; }
+	int get_level() { return level; }
+	virtual std::string description() { return ""; }
 	virtual float get_weight() { return weight; }
 	virtual float get_value() { return value; }
 	virtual std::pair<int, float> get_base_stat() { return base_stat; }

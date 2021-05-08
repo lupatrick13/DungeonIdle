@@ -42,3 +42,19 @@ std::string GET_RARITY(Rarity rarity)
 	}
 	return "common";
 }
+
+wxColour *RARITY_COLOUR(Rarity rarity)
+{
+	switch(rarity)
+	{
+	case common:
+		return new wxColour(255, 255, 255);
+	case rare:
+		return new wxColour(64, 90, 255);
+	case epic:
+		return new wxColour(186, 64, 255);
+	case legendary:
+		return new wxColour(255, 230, 64);
+	}
+	return new wxColour(255, 255, 255);
+}

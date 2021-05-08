@@ -16,20 +16,21 @@ private:
 	pair<Equipment*, Equipment*> set;
 
 public:
-	Player();
+	Player() {
+		exp = 0;
+		level = 0;
+		levelUp = 0;
+		statPoints = 0;
+		set = make_pair(nullptr, nullptr);
+	}
 	virtual ~Player() {}
 	int getEXP() {
 		return exp;
 	};
-	void setEXP(int e);
+	void setEXP(int e) {}
 	int getLevel() {
 		return level;
 	};
-	int combatDMG() {
-		int playerDMG = 0;
-		
-		return 5;
-	}
 
 	//Equipment* combat(entity* opponent);
 

@@ -31,5 +31,5 @@ enum MobType
 	BOSS, REG
 };
 
-static EqpPrefix ALL_PREFIX[3] = {perfect, sharp, none};;
+static EqpPrefix ALL_PREFIX[3] = {perfect, sharp, none};
 #endif /* UTIL_ENUMERATIONHELPERS_H_ */

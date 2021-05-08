@@ -14,7 +14,7 @@ void HomePage::init()
 	wxPanel *statepanel = new wxPanel(this, wxID_ANY, wxDefaultPosition);
 	wxSizer *state_sizer = new wxBoxSizer(wxVERTICAL);
 	dungeon = new DungeonPanel(statepanel, game);
-	choice = new ChoicePanel(statepanel,game);
+	choice = new ChoicePanel(statepanel, game);
 	state_sizer->Add(choice, 0, wxALIGN_CENTRE_HORIZONTAL, 0);
 	state_sizer->Add(dungeon, 0, wxALIGN_CENTRE_HORIZONTAL, 0);
 	statepanel->SetSizer(state_sizer);

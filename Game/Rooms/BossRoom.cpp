@@ -3,15 +3,14 @@
 
 play_state BossRoom::play(int choice)
 {
-	RoomMonster->generate_Mob();
 	if(choice == -1)
 	{
-		if (!mobdead)
+		if (RoomMonster->getCurrentHP() != 0)
 		{
 			main->attack(DungeonMob);
 			return play_state::CONTINUE;
 		}
-		else if(mobddead)
+		else if(RoomMonster->getCurrentHP() == 0)
 		{
 			drop["loot"] = "Dropped a [item name]!";
 			return play_state::LOOT;
@@ -24,7 +23,7 @@ play_state BossRoom::play(int choice)
 	return play_state::CONTINUE;
 }
 
-map<string, string> BossRoom::get_loot()
+map<string, string> BossRoom::get_drop()
 {
 	return drop;
 }
@@ -32,4 +31,9 @@ map<string, string> BossRoom::get_loot()
 void BossRoom::generate_loot()
 {
 	loot = BossTable(main->getLevel());
+}
+
+Equipment * BossRoom::getLoot()
+{
+	return loot;
 }

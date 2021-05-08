@@ -24,9 +24,9 @@ play_state ShopRoom::play(int choice)
 		return play_state::OFFER;
 	}
 	else if(choice == 1 && enoughGold){
-		main->setHP(main->getHP() + heal.first);
+		main->setCurrentHP(main->getMaxHP() + heal.first);
 		std::cout << "Bought heal" << std::endl;
-		main->setGold(main->getGold - heal.second);
+		main->setGold(main->getGold() - heal.second);
 		return play_state::DONE;
 
 	}
@@ -41,7 +41,7 @@ play_state ShopRoom::play(int choice)
 				std::cout << "Bought Armor" << std::endl;
 				return play_state::DONE;
 			}else if(ShopEquip->get_base_stat().first == StatType::DMG){
-				main->setWeap(ShopEquip);
+				main->setWeapon(ShopEquip);
 				std::cout << "Bought Weapon" << std::endl;
 				return play_state::DONE;
 		}
@@ -74,7 +74,7 @@ Equipment * ShopRoom::getEquip()
 void ShopRoom::generateHeal()
 {
 	int amount = 3;
-	int amount = (main->getHealth() * (1/RANDOM_INT(10,20));
+	int amount = (main->getMaxHP() * (1/RANDOM_INT(10,20)));
 	int gold = (main->getLevel() * (1 + (1/RANDOM_INT(1,10))));
 
 	heal = make_pair(amount, gold);
@@ -106,7 +106,7 @@ bool ShopRoom::checkGold(int choice)
 		} else return false;
 	}
 	if(choice == 3){
-		if(main->getGold() >= ShopEquip->getValue(){
+		if(main->getGold() >= ShopEquip->get_value()){
 			return true;
 		} else return false;
 	}

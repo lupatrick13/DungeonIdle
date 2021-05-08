@@ -7,15 +7,14 @@
 
 play_state DungeonRoom::play(int choice)
 {
-	RoomMonster->generate_Mob();
 	if(choice == -1)
 	{
-		if (!mobdead)
+		if (RoomMonster->getCurrentHP() != 0)
 		{
 			main->attack(DungeonMob);
 			return play_state::CONTINUE;
 		}
-		else if(mobddead)
+		else if(RoomMonster->getCurrentHP() == 0)
 		{
 			drop["loot"] = "Dropped a [item name]!";
 			return play_state::LOOT;
@@ -29,14 +28,14 @@ play_state DungeonRoom::play(int choice)
 	return play_state::CONTINUE;
 }
 
-map<string, string> DungeonRoom::get_loot()
+map<string, string> DungeonRoom::get_drop()
 {
 	return drop;
 }
 
-string DungeonRoom::getloot()
+Equipment * DungeonRoom::getLoot()
 {
-	return loot->description();
+	return loot;
 }
 
 void DungeonRoom::generate_loot()

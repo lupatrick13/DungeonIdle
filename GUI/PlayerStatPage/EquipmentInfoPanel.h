@@ -21,14 +21,18 @@ public:
 		init();
 	}
 	virtual ~EquipmentInfoPanel() {}
-	wxStaticText *eqp_name;
-	wxStaticText *value;
-	wxStaticText *main_stat;
-	wxStaticText *additional_stat[6];
+	void update(Equipment *neweqp);
+
 
 private:
 	void init();
 	Equipment *equip;
+	wxStaticText *value;
+	wxStaticText *main_stat;
+	wxStaticText *additional_stat[6];
+	wxStaticText *modifiers;
+	wxStaticText *name_of_eqp;
+	wxStaticText *level_of_eqp;
 };
 
 #endif /* GUI_PLAYERSTATPAGE_EQUIPMENTINFOPANEL_H_ */

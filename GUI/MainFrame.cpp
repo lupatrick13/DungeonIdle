@@ -19,8 +19,22 @@ MainFrame::MainFrame(const wxString& title,
 	player_stats = new PlayerStatPage(m_bookCtrl, new Player());
 	m_bookCtrl->AddPage(player_stats, wxString("Player Stats"), false);
 
-	settings = new SettingsPage(m_bookCtrl);
-	m_bookCtrl->AddPage(settings, wxString("Settings"), false);
+
+	home->choice->choice_button[0]->Bind(wxEVT_BUTTON, &MainFrame::on_zero, this);
+	home->choice->choice_button[1]->Bind(wxEVT_BUTTON, &MainFrame::on_one, this);
+	home->choice->choice_button[2]->Bind(wxEVT_BUTTON, &MainFrame::on_two, this);
+
 }
 
-
+void MainFrame::on_one(wxCommandEvent& event)
+{
+	home->handle_choice(2);
+}
+void MainFrame::on_zero(wxCommandEvent& event)
+{
+	home->handle_choice(0);
+}
+void MainFrame::on_two(wxCommandEvent& event)
+{
+	home->handle_choice(2);
+}

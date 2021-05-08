@@ -26,10 +26,10 @@ void ChoicePanel::init()
 	choice_button[1]->SetBackgroundColour(wxColor(128,128,128));
 	choice_button[2] = new wxButton(button_panel, actionID::roomc2, wxString(GET_ROOM(choices[2])));
 	choice_button[2]->SetBackgroundColour(wxColor(128,128,128));
-
-    choice_button[0]->Bind(wxEVT_BUTTON, &ChoicePanel::on_zero, this);
-    choice_button[1]->Bind(wxEVT_BUTTON, &ChoicePanel::on_one, this);
-    choice_button[2]->Bind(wxEVT_BUTTON, &ChoicePanel::on_two, this);
+//
+//    choice_button[0]->Bind(wxEVT_BUTTON, &ChoicePanel::on_zero, this);
+//    choice_button[1]->Bind(wxEVT_BUTTON, &ChoicePanel::on_one, this);
+//    choice_button[2]->Bind(wxEVT_BUTTON, &ChoicePanel::on_two, this);
 
     choose_text->SetFont(choose_text->GetFont().Larger());
     button_sizer->Add(choose_text, 0, 0, 0);
@@ -54,18 +54,6 @@ void ChoicePanel::init()
 	SetSizer(main_sizer);
 }
 
-void ChoicePanel::on_one(wxCommandEvent& event)
-{
-	handle_choice(1);
-}
-void ChoicePanel::on_two(wxCommandEvent& event)
-{
-	handle_choice(2);
-}
-void ChoicePanel::on_zero(wxCommandEvent& event)
-{
-	handle_choice(0);
-}
 void ChoicePanel::handle_choice(int choice)
 {
 	if(curr_state == play_state::DONE)

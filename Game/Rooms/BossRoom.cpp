@@ -1,13 +1,15 @@
 #include "BossRoom.h"
 #include "BossTable.h"
+#include "combat.h"
 
 play_state BossRoom::play(int choice)
 {
+	
 	if(choice == -1)
 	{
 		if (RoomMonster->getCurrentHP() != 0)
 		{
-			main->attack(DungeonMob);
+			combat(main,RoomMonster);
 			return play_state::CONTINUE;
 		}
 		else if(RoomMonster->getCurrentHP() == 0)
@@ -28,12 +30,22 @@ map<string, string> BossRoom::get_drop()
 	return drop;
 }
 
-void BossRoom::generate_loot()
+// void BossRoom::generate_loot()
+// {
+// 	loot = BossTable(main->getLevel());
+// }
+
+// Equipment * BossRoom::getLoot()
+// {
+// 	return loot;
+// }
+
+Mob * BossRoom::getMob()
 {
-	loot = BossTable(main->getLevel());
+	return RoomMonster;
 }
 
-Equipment * BossRoom::getLoot()
-{
-	return loot;
-}
+// void BossRoom::generateMob()
+// {
+// 	Mob *RoomMonster = new Mob(BOSS, "Boss", loot, main->getLevel());	
+// }

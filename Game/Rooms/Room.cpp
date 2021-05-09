@@ -5,6 +5,7 @@
 #include <iostream>
 #include "RNG.h"
 #include "entity.h"
+#include "mob.h"
 
 using namespace std;
 

@@ -1,6 +1,7 @@
 #include "DungeonRoom.h"
 #include "Room.h"
 #include "DungeonTable.h"
+#include "combat.h"
 #include <stdio.h>     
 #include <stdlib.h>   
 #include <time.h> 
@@ -11,7 +12,7 @@ play_state DungeonRoom::play(int choice)
 	{
 		if (RoomMonster->getCurrentHP() != 0)
 		{
-			main->attack(DungeonMob);
+			combat(main, RoomMonster);
 			return play_state::CONTINUE;
 		}
 		else if(RoomMonster->getCurrentHP() == 0)
@@ -35,10 +36,15 @@ map<string, string> DungeonRoom::get_drop()
 
 Equipment * DungeonRoom::getLoot()
 {
-	return loot;
+	return;
 }
 
-void DungeonRoom::generate_loot()
+// void DungeonRoom::generate_loot()
+// {
+// 	loot = DungeonTable(main->getLevel());
+// }
+
+Mob * DungeonRoom::getMob()
 {
-	loot = DungeonTable(main->getLevel());
+	return RoomMonster;
 }

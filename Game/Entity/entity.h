@@ -37,7 +37,7 @@ public:
 	void setCurrentHP(int i){
 		HP.first = i;
 	}
-	virtual int getCombatDMG() = 0;
+	virtual int combatDMG() = 0;
 	string getName(){
 		return name;
 	}

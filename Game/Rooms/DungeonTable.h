@@ -4,7 +4,7 @@
 #include "../Game/Entity/mob.h"
 
 using namespace std;
-Equipment * DungeonTable(int level)
+LootComponent * DungeonTable(int level)
 {
     int up = level+3;
     int lower = level-3;
@@ -40,10 +40,11 @@ Equipment * DungeonTable(int level)
 	LootComponent *emptyTable = new LootTable(1, "Loser table!");
 	commonTable->add(emptyTable);
 
-	LootComponent *patrick = commonTable->roll();
-	Equipment *nathan = patrick->generate();
+	//LootComponent *patrick = commonTable->roll();
+	
+	//Equipment *nathan = patrick->generate();
 
-    return nathan;
+    return commonTable;
 
 	//std::cout << "done" << std::endl;
 }

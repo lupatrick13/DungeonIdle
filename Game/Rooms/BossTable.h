@@ -5,7 +5,7 @@
 #include "DungeonTable.h"
 
 using namespace std;
-Equipment * BossTable(int level)
+LootComponent * BossTable(int level)
 {
     int up = level+3;
     int lower = level-3;
@@ -74,7 +74,7 @@ Equipment * BossTable(int level)
 	LootComponent *patrick = commonTable->roll();
 	Equipment *nathan = patrick->generate();
 
-    return nathan;
+    return patrick;
 
 	//std::cout << "done" << std::endl;
 }

@@ -17,6 +17,7 @@ play_state DungeonRoom::play(int choice)
 		}
 		else if(RoomMonster->getCurrentHP() == 0)
 		{
+			RoomMonster->getLoot()->generate();
 			drop["loot"] = "Dropped a [item name]!";
 			return play_state::LOOT;
 		}
@@ -36,13 +37,8 @@ map<string, string> DungeonRoom::get_drop()
 
 Equipment * DungeonRoom::getLoot()
 {
-	return;
+	return 	RoomMonster->getLoot()->generate();
 }
-
-// void DungeonRoom::generate_loot()
-// {
-// 	loot = DungeonTable(main->getLevel());
-// }
 
 Mob * DungeonRoom::getMob()
 {

@@ -16,11 +16,9 @@ public:
 	virtual map<string, string> get_drop();
 	virtual Equipment * getLoot();
 	virtual vector<string> get_Status(); 
-	//virtual void generate_loot();
 	virtual Mob * getMob();
 private:
 	map<string, string> drop; // first string item name, second string description;
-	//Equipment * loot;
 };
 
 

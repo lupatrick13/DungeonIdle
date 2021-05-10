@@ -46,7 +46,6 @@ LootComponent * BossTable(int level)
 	EquipmentFactory *Pants2= new EquipmentFactory(ARMOR, legendary, "Legendary Pants", RANDOM_INT(1,30), 1, RANDOM_INT(lower,up));
 	EquipmentFactory *Shoes2 = new EquipmentFactory(ARMOR, legendary, "Legendary Shoes", RANDOM_INT(1,30), 1, RANDOM_INT(lower,up));
 
-	//LootComponent *rareTable = new LootTable(1,"Rare Table");
 	LootComponent *legendaryTable = new LootTable(10,"Legendary Table");
 
 	LootComponent *Sword = new Loot(1, Sword2);

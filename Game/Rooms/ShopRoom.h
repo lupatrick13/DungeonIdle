@@ -8,7 +8,7 @@ public:
 	virtual ~ShopRoom() {}
 	virtual room_type get_type(){ return room_type::SHOP_S; }
 	virtual play_state play(int choice = -1);
-	virtual map<string, string> get_loot();
+	virtual map<string, string> get_drop();
 	pair<int,int> getHeal();
 	pair<int,int> getBoost();
 	virtual Equipment * getEquip();

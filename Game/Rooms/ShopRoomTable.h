@@ -17,7 +17,6 @@ Equipment * ShopTable(int level)
 	EquipmentFactory *Pants1= new EquipmentFactory(ARMOR, common, "Basic Pants", RANDOM_INT(1,30), 1, RANDOM_INT(lower,up));
 	EquipmentFactory *Shoes1 = new EquipmentFactory(ARMOR, common, "Basic Shoes", RANDOM_INT(1,30), 1, RANDOM_INT(lower,up));
 
-	//LootComponent *rareTable = new LootTable(1,"Rare Table");
 	LootComponent *commonTable = new LootTable(35,"Common Table");
 
 	LootComponent *Sword = new Loot(1, Sword1);

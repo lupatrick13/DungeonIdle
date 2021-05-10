@@ -14,6 +14,7 @@ play_state BossRoom::play(int choice)
 		}
 		else if(RoomMonster->getCurrentHP() == 0)
 		{
+			RoomMonster->getLoot()->generate();
 			drop["loot"] = "Dropped a [item name]!";
 			return play_state::LOOT;
 		}
@@ -30,22 +31,12 @@ map<string, string> BossRoom::get_drop()
 	return drop;
 }
 
-// void BossRoom::generate_loot()
-// {
-// 	loot = BossTable(main->getLevel());
-// }
-
-// Equipment * BossRoom::getLoot()
-// {
-// 	return loot;
-// }
+Equipment * BossRoom::getLoot()
+{
+	return RoomMonster->getLoot()->generate();
+}
 
 Mob * BossRoom::getMob()
 {
 	return RoomMonster;
 }
-
-// void BossRoom::generateMob()
-// {
-// 	Mob *RoomMonster = new Mob(BOSS, "Boss", loot, main->getLevel());	
-// }

@@ -51,7 +51,7 @@ play_state ShopRoom::play(int choice)
 	return play_state::CONTINUE;
 }
 
-map<string, string> ShopRoom::get_loot()
+map<string, string> ShopRoom::get_drop()
 {
 	return buyable;
 }

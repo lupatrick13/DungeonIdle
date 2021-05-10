@@ -7,7 +7,7 @@
 
 using namespace std;
 
-pair<int, bool> combat(Player *a, Mob *b){
+bool combat(Player *a, Mob *b){
 	bool dead = false;
 	int i = 0;
 
@@ -81,17 +81,17 @@ pair<int, bool> combat(Player *a, Mob *b){
 		if(nowPlayerHP <= 0){
 			dead = true; 
 			cout << "Player is dead" << endl;
-			return;
+			return dead;
 		}
 		else if(mobHP <= 0){
 			cout << "Mob is dead" << endl;
 			//mobLootDrop(b); // return loot function DungeonRoom->get_loot()
-			return;
+			return dead;
 		}
 	}
 	
 
-	//return i, dead;
+	return dead;
 }
 
 // Equipment *mobLootDrop(mob a){

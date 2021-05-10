@@ -85,7 +85,7 @@ pair<int, bool> combat(Player *a, Mob *b){
 		}
 		else if(mobHP <= 0){
 			cout << "Mob is dead" << endl;
-			mobLootDrop(b); // return loot function DungeonRoom->get_loot()
+			//mobLootDrop(b); // return loot function DungeonRoom->get_loot()
 			return;
 		}
 	}
@@ -94,8 +94,8 @@ pair<int, bool> combat(Player *a, Mob *b){
 	//return i, dead;
 }
 
-Equipment *mobLootDrop(mob a){
+// Equipment *mobLootDrop(mob a){
 
-}
+// }
 
 #endif /* COMBAT_H_ */

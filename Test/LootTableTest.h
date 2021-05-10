@@ -2,6 +2,8 @@
 #include "../Loot/LootTable.h"
 #include "../Loot/Loot.h"
 #include "../Entity/mob.h"
+#include "../Entity/player.h"
+#include "../combat/combat.h"
 
 using namespace std;
 void testLootTable()
@@ -34,8 +36,13 @@ void testLootTable()
 	LootComponent *emptyTable = new LootTable(2, "Aw man table!");
 	commonTable->add(emptyTable);
 
-	entity *monstertest = new mob(REG, "Goblin", commonTable);
+	Mob *monstertest = new Mob(REG, "Goblin", commonTable, 5);
+	Player *p = new Player();
+	combat(p, monstertest);
 
-	Equipment *lootdropped = monstertest->combat(monstertest);
-	lootdropped->print();
+	
+
+
+	//Equipment *lootdropped = monstertest->combat(monstertest);
+	//lootdropped->print();
 }

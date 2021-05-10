@@ -25,6 +25,10 @@ public:
 		return totalDMG;
 	}
 
+	LootComponent *getLoot(){
+		return droptable->roll();
+	}
+	
 	//Equipment *combat(entity *opponent);
 
 };

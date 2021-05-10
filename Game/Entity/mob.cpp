@@ -1,26 +1,9 @@
 #include "mob.h"
 
-Mob::Mob(MobType mobType, string name, LootComponent *drops, int level)
-: Entity(level, name), mobType(mobType), droptable(drops)
+Mob::Mob(MobType mobType, string name, LootComponent *drops)
+: Entity(), mobType(mobType), mobName(name), droptable(drops)
 {
-	HP.first = 10;
-	HP.second = 10;
-	stats[StatType::DMG] = 5;
 
-	int lower = 0;
-	int upper = 5;
-	if(mobType == BOSS){
-		lower += 10;
-		upper += 20;
-	}
-	for(int i=0; i<level; i++){	
-		int randStat = RANDOM_INT(0,5);
-		int randBoost = RANDOM_INT(lower, upper);
-		stats[randStat] += randBoost;
-		HP.first += randBoost;
-		HP.second += randBoost;
-		stats[StatType::DMG] += randBoost;
-	}
 }
 
 

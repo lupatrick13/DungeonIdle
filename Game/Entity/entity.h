@@ -22,25 +22,33 @@ public:
 	virtual ~Entity() {}
 	map<int, int> getStats();
 	//virtual Equipment *combat(Entity *opponent) {return nullptr;};
+	
 	int getCurrentHP(){
 		return HP.first;
-	};
+	}
+	
 	int getMaxHP(){
 		return HP.second;
 	}
+	
 	int getSPEED(){
 		return SPEED + stats[StatType::AGI];
-	};
+	}
+
 	int getDODGE(){
 		return DODGE + stats[StatType::DEX];
 	}
+
 	void setCurrentHP(int i){
 		HP.first = i;
 	}
+
 	virtual int combatDMG() = 0;
+	
 	string getName(){
 		return name;
 	}
+	
 	int getLevel(){
 		return level;
 	}

@@ -52,11 +52,11 @@ public:
 		set.first = a;
 	}
 
-	int getArmor(){
-		std::map<int, float> AMR = set.first->get_base_stat();
-		std::map<int, float> AMR = set.first->get_additional();
-		return set.first + stats[StatType::ARMOR];
-	}
+	// int getArmor(){
+	// 	std::map<int, float> AMR = set.first->get_base_stat();
+	// 	std::map<int, float> AMR = set.first->get_additional();
+	// 	return set.first + stats[StatType::ARMOR];
+	// }
 
 	void setWeapon(Equipment *a){
 		set.second = a;

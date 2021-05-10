@@ -9,28 +9,26 @@ class Mob: public Entity
 {
 private:
 	MobType mobType;
-	string mobName;
 	LootComponent *droptable;
 
 public:
-	Mob(MobType mobType, string name, LootComponent *drops);
+	Mob(MobType mobType, string name, LootComponent *drops, int level);
 	virtual ~Mob() {}
 	MobType getMobType() { return mobType; }
-	string getMobName() { return mobName; }
 	int combatDMG() {
 		int mobDMG, totalDMG = 0;
-		if (mobType == MobType::REG) {
-			mobDMG = (DMG * RANDOM_INT(1, 5)) - (ARMOR * 0.5);
-			totalDMG = (mobDMG * (1 + (mobType / 100)));
-
+		mobDMG = (DMG * RANDOM_INT(1, 5));	
+		if (mobType = BOSS) {
+			mobDMG *= 2;
 		}
-		else if (mobType == MobType::BOSS) {
-			mobDMG = (DMG * RANDOM_INT(1, 5) * 2) - (ARMOR * 0.5);
-			totalDMG = (mobDMG * (1 + (mobType / 100)));
-		}
+		totalDMG = (mobDMG * (1 + (mobType / 100)));
 		return totalDMG;
 	}
 
+	LootComponent *getLoot(){
+		return droptable->roll();
+	}
+	
 	//Equipment *combat(entity *opponent);
 
 };

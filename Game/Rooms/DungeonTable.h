@@ -1,4 +1,5 @@
-
+#ifndef DUNGEONTABLE_H_
+#define DUNGEONTABLE_H_
 #include "../Game/Loot/LootTable.h"
 #include "../Game/Loot/Loot.h"
 #include "../Game/Entity/mob.h"
@@ -43,3 +44,5 @@ LootComponent * DungeonTable(int level)
 
 	//std::cout << "done" << std::endl;
 }
+
+#endif /* DUNGEONTABLE_H_ */

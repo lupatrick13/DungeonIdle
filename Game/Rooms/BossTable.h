@@ -1,4 +1,5 @@
-
+#ifndef BOSSTABLE_H_
+#define BOSSTABLE_H_
 #include "../Game/Loot/LootTable.h"
 #include "../Game/Loot/Loot.h"
 #include "../Game/Entity/mob.h"
@@ -74,3 +75,5 @@ LootComponent * BossTable(int level)
 
 	//std::cout << "done" << std::endl;
 }
+
+#endif /* BOSSTABLE_H_ */

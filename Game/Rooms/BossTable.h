@@ -70,10 +70,7 @@ LootComponent * BossTable(int level)
 
     commonTable->add(legendaryTable);
 
-	LootComponent *patrick = commonTable->roll();
-	Equipment *nathan = patrick->generate();
-
-    return patrick;
+    return commonTable;
 
 	//std::cout << "done" << std::endl;
 }

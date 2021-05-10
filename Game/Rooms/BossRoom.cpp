@@ -1,18 +1,21 @@
 #include "BossRoom.h"
-
+#include "BossTable.h"
+#include "combat.h"
 
 play_state BossRoom::play(int choice)
 {
+	
 	if(choice == -1)
 	{
-		int random = RANDOM_INT(0,3);
-		if (random == 1)
+		if (RoomMonster->getCurrentHP() != 0)
 		{
-			return play_state::DONE;
+			combat(main,RoomMonster);
+			return play_state::CONTINUE;
 		}
-		else if(random == 2)
+		else if(RoomMonster->getCurrentHP() == 0)
 		{
-			loot["loot"] = "Dropped a [item name]!";
+			RoomMonster->getLoot()->generate();
+			drop["loot"] = "Dropped a [item name]!";
 			return play_state::LOOT;
 		}
 	}
@@ -23,7 +26,17 @@ play_state BossRoom::play(int choice)
 	return play_state::CONTINUE;
 }
 
-map<string, string> BossRoom::get_loot()
+map<string, string> BossRoom::get_drop()
 {
-	return loot;
+	return drop;
+}
+
+Equipment * BossRoom::getLoot()
+{
+	return RoomMonster->getLoot()->generate();
+}
+
+Mob * BossRoom::getMob()
+{
+	return RoomMonster;
 }

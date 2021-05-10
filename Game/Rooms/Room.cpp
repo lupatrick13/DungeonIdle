@@ -1,19 +1,11 @@
 #include "Room.h"
+#include <stdio.h>     
+#include <stdlib.h>   
+#include <time.h> 
+#include <iostream>
+#include "RNG.h"
+#include "entity.h"
+#include "mob.h"
 
-std::string GET_ROOM(room_type token)
-{
-	string name;
-	switch(token)
-	{
-	case room_type::BOSS_S:
-		name = "Boss";
-		break;
-	case room_type::SHOP_S:
-		name = "Shop";
-		break;
-	case room_type::DUNGEON_S:
-		name = "Dungeon";
-		break;
-	}
-	return name;
-}
+using namespace std;
+

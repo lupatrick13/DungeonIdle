@@ -1,5 +1,7 @@
 #include "DungeonRoom.h"
 #include "Room.h"
+#include "DungeonTable.h"
+#include "combat.h"
 #include <stdio.h>     
 #include <stdlib.h>   
 #include <time.h> 
@@ -8,13 +10,14 @@ play_state DungeonRoom::play(int choice)
 {
 	if(choice == -1)
 	{
-		int random = RANDOM_INT(0,3);
-		if (random == 1)
+		if (RoomMonster->getCurrentHP() != 0)
 		{
-			return play_state::DONE;
+			combat(main, RoomMonster);
+			return play_state::CONTINUE;
 		}
-		else if(random == 2)
+		else if(RoomMonster->getCurrentHP() == 0)
 		{
+			RoomMonster->getLoot()->generate();
 			drop["loot"] = "Dropped a [item name]!";
 			return play_state::LOOT;
 		}
@@ -27,7 +30,17 @@ play_state DungeonRoom::play(int choice)
 	return play_state::CONTINUE;
 }
 
-map<string, string> DungeonRoom::get_loot()
+map<string, string> DungeonRoom::get_drop()
 {
 	return drop;
+}
+
+Equipment * DungeonRoom::getLoot()
+{
+	return 	RoomMonster->getLoot()->generate();
+}
+
+Mob * DungeonRoom::getMob()
+{
+	return RoomMonster;
 }

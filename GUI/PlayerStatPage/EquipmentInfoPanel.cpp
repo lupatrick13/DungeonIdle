@@ -10,15 +10,32 @@
 void EquipmentInfoPanel::init()
 {
 	wxSizer *main_sizer = new wxBoxSizer(wxVERTICAL);
-
-	map<int, float> additional_stats = equip->get_additional();
-	pair<int, float> base_stat = equip->get_base_stat();
-	int level = equip->get_level();
-	string eqp_value = to_string((int)equip->get_value());
-	string name = equip->get_name() + " ";
-	string mods = equip->description();
-	Rarity rarity = equip->get_rarity();
-
+	map<int, float> additional_stats;
+	pair<int, float> base_stat;
+	int level;
+	string eqp_value;
+	string name;
+	string mods;
+	Rarity rarity;
+	if(equip == nullptr)
+	{
+		base_stat = make_pair(0,0);
+		level = 0;
+		eqp_value = "-100 ";
+		name = "Air ";
+		mods = "Broke? ";
+		rarity = common;
+	}
+	else
+	{
+		additional_stats = equip->get_additional();
+		base_stat = equip->get_base_stat();
+		level = equip->get_level();
+		eqp_value = to_string((int)equip->get_value());
+		name = equip->get_name() + " ";
+		mods = equip->description();
+		rarity = equip->get_rarity();
+	}
 	wxPanel *beginning_panel = new wxPanel(this, wxID_ANY);
 	wxSizer *beg_sizer = new wxBoxSizer(wxVERTICAL);
 	modifiers = new wxStaticText(beginning_panel, wxID_ANY, wxString(mods));

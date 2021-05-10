@@ -28,6 +28,7 @@ public:
 	int getBosses_defeated() { return bosses_defeated;}
 	int getBossCd() {return boss_cd; }
 	int getShopChance() { return shop_chance; }
+	room_type getRoomType(){ return roomtype; };
 	std::vector<room_type> get_choice() {return choices;}
 	Player *getPlayer() { return main; }
 
@@ -40,6 +41,7 @@ private:
 	std::vector<room_type> choices;
 	int rooms_cleared, bosses_defeated,
 		boss_cd, shop_chance;
+	room_type roomtype;
 };
 
 #endif /* GAME_DUNGEONIDLE_H_ */

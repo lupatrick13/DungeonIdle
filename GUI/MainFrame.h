@@ -10,6 +10,7 @@
 
 #include "HomePage/HomePage.h"
 #include "PlayerStatPage/PlayerStatPage.h"
+#include "GameStatPage/GameStatPage.h"
 
 class MainFrame: public wxFrame {
 public:
@@ -23,6 +24,7 @@ private:
 	DungeonIdle* game;
 	HomePage *home;
 	PlayerStatPage *player_stats;
+	GameStatPage *game_stats;
 
     wxNotebook *m_bookCtrl;
 };

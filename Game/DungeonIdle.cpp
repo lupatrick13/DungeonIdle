@@ -16,6 +16,9 @@ DungeonIdle::DungeonIdle()
 	main = new Player();
 	curr_room = nullptr;
 	choices.resize(3);
+	roomtype = DUNGEON_S;
+	rooms_cleared = 0;
+	bosses_defeated = 0;
 }
 
 void DungeonIdle::generate_choice()

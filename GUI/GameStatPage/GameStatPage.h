@@ -19,8 +19,11 @@ public:
 		init();
 	};
 	virtual ~GameStatPage() {}
+	void update();
 private:
 	void init();
 	DungeonIdle *game;
+	wxStaticText *current_room, *rooms_cleared,
+		*bosses_defeated, *shop_chance;
 };
 #endif /* GUI_GAMESTATPAGE_GAMESTATPAGE_H_ */

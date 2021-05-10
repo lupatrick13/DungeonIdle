@@ -14,5 +14,7 @@ void PlayerPanel::init()
 	wxPanel *statepanel = new wxPanel(this, wxID_ANY, wxDefaultPosition);
 	wxSizer *state_sizer = new wxBoxSizer(wxVERTICAL);
 
+	SetWindowStyle(wxBORDER_RAISED);
+	SetBackgroundColour(wxColor(169,169,169));
 	SetSizer(main_sizer);
 }

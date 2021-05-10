@@ -16,7 +16,10 @@ MainFrame::MainFrame(const wxString& title,
 	home = new HomePage(m_bookCtrl, game);
 	m_bookCtrl->AddPage(home, wxString("Home"), true);
 
-	player_stats = new PlayerStatPage(m_bookCtrl, new Player());
+	game_stats =new GameStatPage(m_bookCtrl, game);
+	m_bookCtrl->AddPage(game_stats, wxString("Game Stats"), false);
+
+	player_stats = new PlayerStatPage(m_bookCtrl, game->getPlayer());
 	m_bookCtrl->AddPage(player_stats, wxString("Player Stats"), false);
 
 
@@ -28,13 +31,16 @@ MainFrame::MainFrame(const wxString& title,
 
 void MainFrame::on_one(wxCommandEvent& event)
 {
-	home->handle_choice(2);
+	home->handle_choice(1);
+	game_stats->update();
 }
 void MainFrame::on_zero(wxCommandEvent& event)
 {
 	home->handle_choice(0);
+	game_stats->update();
 }
 void MainFrame::on_two(wxCommandEvent& event)
 {
 	home->handle_choice(2);
+	game_stats->update();
 }

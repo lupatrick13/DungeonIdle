@@ -9,6 +9,9 @@
 #define GUI_HOMEPAGE_HOMEPAGE_H_
 
 #include "ChoicePanel.h"
+#include "PlayerPanel.h"
+#include "MobPanel.h"
+#include "../PlayerStatPage/EquipmentInfoPanel.h"
 
 class HomePage: public wxPanel{
 public:
@@ -17,11 +20,18 @@ public:
         init();
     };
 	virtual ~HomePage() {}
-	void handle_choice(int choice2) { choice->handle_choice(choice2);}
+	void handle_choice(int choice2);
+
 	ChoicePanel *choice;
+
 private:
 	void init();
+	void update_boss_counter();
+	wxStaticText *boss_cd;
 	DungeonIdle *game;
+	PlayerPanel *player;
+	MobPanel *mob;
+	EquipmentInfoPanel *drop;
 };
 
 #endif /* GUI_HOMEPAGE_HOMEPAGE_H_ */

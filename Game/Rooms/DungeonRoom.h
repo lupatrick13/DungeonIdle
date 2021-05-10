@@ -2,7 +2,7 @@
 #define _DUNGEONROOM_
 #pragma once
 #include "Room.h"
-
+#include "DungeonTable.h"
 class DungeonRoom: public Room
 {
 

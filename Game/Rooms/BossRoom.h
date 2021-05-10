@@ -2,6 +2,7 @@
 #define _BOSSROOM_
 #pragma once
 #include "Room.h"
+#include "BossTable.h"
 class BossRoom: public Room
 {
 private: 

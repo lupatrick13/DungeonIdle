@@ -48,22 +48,22 @@ LootComponent * BossTable(int level)
 
 	LootComponent *legendaryTable = new LootTable(10,"Legendary Table");
 
-	LootComponent *Sword = new Loot(1, Sword2);
-    legendaryTable->add(Sword);
-	LootComponent *Bow = new Loot(1, Bow2);
-    legendaryTable->add(Bow);
-	LootComponent *Staff = new Loot(1, Staff2);
-    legendaryTable->add(Staff);
-	LootComponent *Shield = new Loot(1, Shield2);
-    legendaryTable->add(Shield);
-	LootComponent *Helmet = new Loot(3, Helmet2);
-    legendaryTable->add(Helmet);
-	LootComponent *Chest = new Loot(3, Chest2);
-    legendaryTable->add(Chest);
-	LootComponent *Pants = new Loot(3, Pants2);
-    legendaryTable->add(Pants);
-	LootComponent *Shoes = new Loot(3, Shoes2);
-    legendaryTable->add(Shoes);
+	LootComponent *LSword = new Loot(1, Sword2);
+    legendaryTable->add(LSword);
+	LootComponent *LBow = new Loot(1, Bow2);
+    legendaryTable->add(LBow);
+	LootComponent * LStaff = new Loot(1, Staff2);
+    legendaryTable->add(LStaff);
+	LootComponent * LShield = new Loot(1, Shield2);
+    legendaryTable->add(LShield);
+	LootComponent * LHelmet = new Loot(3, Helmet2);
+    legendaryTable->add(LHelmet);
+	LootComponent * LChest = new Loot(3, Chest2);
+    legendaryTable->add(LChest);
+	LootComponent * LPants = new Loot(3, Pants2);
+    legendaryTable->add(LPants);
+	LootComponent * LShoes = new Loot(3, Shoes2);
+    legendaryTable->add(LShoes);
 
 	LootComponent *emptyTable = new LootTable(5, "Loser table!");
 	legendaryTable->add(emptyTable);

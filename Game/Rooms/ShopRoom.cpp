@@ -73,7 +73,6 @@ Equipment * ShopRoom::getEquip()
 	
 void ShopRoom::generateHeal()
 {
-	int amount = 3;
 	int amount = (main->getMaxHP() * (1/RANDOM_INT(10,20)));
 	int gold = (main->getLevel() * (1 + (1/RANDOM_INT(1,10))));
 

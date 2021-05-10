@@ -1,5 +1,6 @@
+#ifndef _SHOPROOM_
+#define _SHOPROOM_
 #pragma once
-
 #include "Room.h"
 class ShopRoom: public Room
 {
@@ -24,3 +25,4 @@ private:
 	map<string, string> buyable;
 };
 
+#endif

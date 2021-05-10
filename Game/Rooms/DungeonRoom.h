@@ -1,3 +1,5 @@
+#ifndef _DUNGEONROOM_
+#define _DUNGEONROOM_
 #pragma once
 #include "Room.h"
 
@@ -20,4 +22,4 @@ private:
 	map<string, string> drop; // first string item name, second string description;
 };
 
-
+#endif

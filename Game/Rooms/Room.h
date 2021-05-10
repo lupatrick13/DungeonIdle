@@ -1,5 +1,6 @@
+#ifndef _ROOM_
+#define _ROOM_
 #pragma once
-
 #include "../Entity/AllEntity.h"
 #include "../../util/RNG.h"
 
@@ -31,3 +32,4 @@ protected:
 	string statusString;
 };
 
+#endif

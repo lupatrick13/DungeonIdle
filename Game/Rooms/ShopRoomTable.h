@@ -1,4 +1,5 @@
-
+#ifndef _SHOPROOMTABLE_
+#define _SHOPROOMTABLE_
 #include "../Game/Loot/LootTable.h"
 #include "../Game/Loot/Loot.h"
 #include "../Game/Entity/mob.h"
@@ -46,3 +47,5 @@ Equipment * ShopTable(int level)
 
 	//std::cout << "done" << std::endl;
 }
+
+#endif

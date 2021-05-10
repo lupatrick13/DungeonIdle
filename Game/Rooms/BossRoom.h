@@ -1,5 +1,6 @@
+#ifndef _BOSSROOM_
+#define _BOSSROOM_
 #pragma once
-
 #include "Room.h"
 class BossRoom: public Room
 {
@@ -19,3 +20,4 @@ public:
 	virtual Mob * getMob();
 };
 
+#endif

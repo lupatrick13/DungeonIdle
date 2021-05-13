@@ -54,7 +54,7 @@ void ChoicePanel::init()
 	SetSizer(main_sizer);
 }
 
-void ChoicePanel::handle_choice(int choice)
+play_state ChoicePanel::handle_choice(int choice)
 {
 	if(curr_state == play_state::DONE)
 	{
@@ -75,6 +75,7 @@ void ChoicePanel::handle_choice(int choice)
 	}
 	handle_buttonUI();
 	GetSizer()->Layout();
+	return curr_state;
 }
 
 void ChoicePanel::handle_buttonUI()
@@ -96,7 +97,7 @@ void ChoicePanel::handle_buttonUI()
 		choice_button[0]->Show(true);
 		choice_button[1]->Show(false);
 		choice_button[2]->Show(false);
-		choice_button[0]->SetLabel("Continue!");
+		choice_button[0]->SetLabel("Fight!");
 		status_text->SetLabel("Delving deep into the dungeon...");
 	}
 	else if(curr_state == play_state::LOOT)
@@ -106,8 +107,6 @@ void ChoicePanel::handle_buttonUI()
 		choice_button[2]->Show(false);
 		choice_button[0]->SetLabel("Take");
 		choice_button[1]->SetLabel("Leave");
-		map<string, string> loot = game->get_loot();
-		status_text->SetLabel(loot["loot"]);
 	}
 	else if(curr_state == play_state::OFFER)
 	{
@@ -117,7 +116,5 @@ void ChoicePanel::handle_buttonUI()
 		choice_button[0]->SetLabel("Heal!");
 		choice_button[1]->SetLabel("Boost!");
 		choice_button[2]->SetLabel("Equip!");
-		map<string, string> loot = game->get_loot();
-		status_text->SetLabel(loot["Heal"] + " " + loot["Boost"]);
 	}
 }

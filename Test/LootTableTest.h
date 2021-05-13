@@ -34,7 +34,7 @@ void testLootTable()
 	LootComponent *emptyTable = new LootTable(2, "Aw man table!");
 	commonTable->add(emptyTable);
 
-	Entity *monstertest = new Mob(REG, "Goblin", commonTable);
+	Entity *monstertest = new Mob(REG, "Goblin", commonTable, 1);
 
 	std::cout << "done" << std::endl;
 }

@@ -33,12 +33,12 @@ public:
 	Equipment(StatType type, Rarity rarity, std::string name, float value, float weight, int level): //type is only dmg or armor
 		rarity(rarity), base_name(name), value(value), level(level), weight(weight)
 	{
-		base_stat = std::make_pair(type, level * 10 * type * rarity * RANDOM_REAL(0,1.5));
+		base_stat = std::make_pair(type, level * 10 * type * rarity * RANDOM_REAL(0.7,1.5));
 
 		for(int i =0; i<rarity; i++)
 		{
 			int type = RANDOM_INT(0,5);
-			int amt = RANDOM_REAL(0, 1 + (float)level / 2);
+			int amt = RANDOM_REAL(0.5, 1 + (float)level / 2);
 			if(type == DMG || type == ARMOR) amt *= 30;
 			additional[type] += amt;
 		}

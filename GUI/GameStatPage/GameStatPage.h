@@ -9,12 +9,11 @@
 #define GUI_GAMESTATPAGE_GAMESTATPAGE_H_
 
 #include <wx/wx.h>
-#include <wx/notebook.h>
 #include "../../Game/DungeonIdle.h"
 
 class GameStatPage: public wxPanel{
 public:
-	GameStatPage(wxNotebook *parent, DungeonIdle *game): wxPanel(parent, wxID_ANY), game(game)
+	GameStatPage(wxPanel *parent, DungeonIdle *game): wxPanel(parent, wxID_ANY), game(game)
 	{
 		init();
 	};

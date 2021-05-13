@@ -20,14 +20,14 @@ public:
         init();
     };
 	virtual ~HomePage() {}
-	void handle_choice(int choice2);
+	play_state handle_choice(int choice2);
 
 	ChoicePanel *choice;
 
 private:
 	void init();
 	void update_boss_counter();
-	wxStaticText *boss_cd;
+	wxStaticText *boss_cd, *status_t[3];
 	DungeonIdle *game;
 	PlayerPanel *player;
 	MobPanel *mob;

@@ -1,9 +1,10 @@
 #ifndef ENTITY_H_
 #define ENTITY_H_
 #include "../Loot/LootComponent.h"
-#include "../util/RNG.h"
+#include "../../util/RNG.h"
 #include "../Equipment/Equipment.h"
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -13,37 +14,38 @@ protected:
 	std::map<int, int> stats;
 	int SPEED;
 	int DODGE;
-	pair<int, int> HP; // first is currentHP, second is maxHP
+	pair<float, float> HP; // first is currentHP, second is maxHP
 	string name;
 	int level;
-
+	int exp;
+	int gold;
 public:
 	Entity(int level, string name);
 	virtual ~Entity() {}
 	map<int, int> getStats();
 	//virtual Equipment *combat(Entity *opponent) {return nullptr;};
 	
-	int getCurrentHP(){
+	float getCurrentHP(){
 		return HP.first;
 	}
 	
-	int getMaxHP(){
+	float getMaxHP(){
 		return HP.second;
 	}
 	
-	int getSPEED(){
-		return SPEED + stats[StatType::AGI];
+	float getSPEED(){
+		return RANDOM_REAL(0.7, 1.3) *(SPEED + stats[StatType::AGI]);
 	}
 
-	int getDODGE(){
-		return DODGE + stats[StatType::DEX];
+	float getDODGE(){
+		return RANDOM_REAL(0.7, 1.3) *(DODGE + stats[StatType::DEX]);
 	}
 
-	void setCurrentHP(int i){
+	void setCurrentHP(float i){
 		HP.first = i;
 	}
 
-	virtual int combatDMG() = 0;
+	virtual float combatDMG() = 0;
 	
 	string getName(){
 		return name;
@@ -53,6 +55,14 @@ public:
 		return level;
 	}
 
+	int getEXP() {
+		return exp;
+	};
+	int getGold(){
+		return gold;
+	}
+
+	float getArmorReduc();
 
 };
 

@@ -1,4 +1,4 @@
-/*
+ /*
  * DungeonIdle.cpp
  *
  *  Created on: Apr 30, 2021
@@ -14,7 +14,7 @@ DungeonIdle::DungeonIdle()
 	boss_cd = 10;
 	bosses_defeated = 0;
 	main = new Player();
-	curr_room = nullptr;
+	curr_room = RoomFactory::make_room(DUNGEON_S, main);
 	choices.resize(3);
 	roomtype = DUNGEON_S;
 	rooms_cleared = 0;
@@ -54,7 +54,6 @@ room_type DungeonIdle::generate_room(int choice)
 play_state DungeonIdle::play(int choice)
 {
 	play_state status = curr_room->play(choice);
-
 	room_type type = curr_room->get_type();
 	if(type != room_type::SHOP_S && status == play_state::DONE)
 	{

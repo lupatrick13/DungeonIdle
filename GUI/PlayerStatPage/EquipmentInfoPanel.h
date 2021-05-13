@@ -14,18 +14,19 @@
 
 class EquipmentInfoPanel: public wxPanel {
 public:
-	EquipmentInfoPanel(wxPanel *parent, Equipment *eqp):
+	EquipmentInfoPanel(wxPanel *parent, Equipment *eqp, StatType type):
 		wxPanel(parent, wxID_ANY, wxDefaultPosition),
-		equip(eqp)
+		equip(eqp), type(type)
 	{
 		init();
 	}
 	virtual ~EquipmentInfoPanel() {}
-	void update(Equipment *neweqp);
+	void update(Equipment *neweqp, int type=StatType::AGI);
 
 
 private:
 	void init();
+	StatType type;
 	Equipment *equip;
 	wxStaticText *value;
 	wxStaticText *main_stat;
@@ -33,6 +34,7 @@ private:
 	wxStaticText *modifiers;
 	wxStaticText *name_of_eqp;
 	wxStaticText *level_of_eqp;
+	wxStaticText *base_stat_name;
 };
 
 #endif /* GUI_PLAYERSTATPAGE_EQUIPMENTINFOPANEL_H_ */

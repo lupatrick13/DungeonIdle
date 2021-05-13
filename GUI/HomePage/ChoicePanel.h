@@ -21,7 +21,7 @@ public:
     };
 	virtual ~ChoicePanel() {}
 
-	void handle_choice(int choice);
+	play_state handle_choice(int choice);
 
 	wxButton *choice_button[3];
 private:

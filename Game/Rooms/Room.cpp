@@ -1,11 +1,24 @@
-#include "Room.h"
-#include <stdio.h>     
-#include <stdlib.h>   
-#include <time.h> 
-#include <iostream>
-#include "RNG.h"
-#include "entity.h"
-#include "mob.h"
+/*
+ * Room.cpp
+ *
+ *  Created on: May 10, 2021
+ *      Author: patrick
+ */
 
-using namespace std;
+#include "Room.h"
+
+std::string GET_ROOM(room_type roomtype)
+{
+	switch(roomtype)
+	{
+	case SHOP_S:
+		return "SHOP";
+	case DUNGEON_S:
+		return "DUNGEON";
+	case BOSS_S:
+		return "BOSS";
+	}
+	return "DUNGEON";
+}
+
 

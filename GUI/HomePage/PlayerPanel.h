@@ -9,6 +9,7 @@
 #define GUI_HOMEPAGE_PlayerPANEL_H_
 
 #include <wx/wx.h>
+#include <wx/gauge.h>
 #include "../../Game/DungeonIdle.h"
 class PlayerPanel: public wxPanel {
 public:
@@ -24,6 +25,8 @@ public:
 
 private:
 	void init();
+	wxStaticText *level, *HP_t, *EXP_t,*armor_t, *gold_t, *stats_t[6];
+	wxGauge *EXP_G, *HP_G;
 	Player *guy;
 };
 

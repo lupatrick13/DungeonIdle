@@ -19,11 +19,13 @@ public:
 		init();
 	}
 	virtual ~MobPanel() {}
-	void update();
+	void update(Mob *newGuy);
 
 
 private:
 	void init();
+	wxStaticText *level, *HP_t, *EXP_t, *gold_t,*armor_t, *title_label, *stats_t[6];
+	wxGauge *HP_G;
 	Mob *guy;
 };
 #endif /* GUI_HOMEPAGE_MOBPANEL_H_ */

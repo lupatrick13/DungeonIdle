@@ -15,13 +15,13 @@ public:
 	Mob(MobType mobType, string name, LootComponent *drops, int level);
 	virtual ~Mob() {}
 	MobType getMobType() { return mobType; }
-	int combatDMG() {
-		int mobDMG, totalDMG = 0;
-		mobDMG = (DMG * RANDOM_INT(1, 5));	
-		if (mobType = BOSS) {
-			mobDMG *= 2;
+	float combatDMG() {
+		float mobDMG, totalDMG = 0;
+		mobDMG = (stats[DMG] * RANDOM_REAL(0.8, 2.2));
+		if (mobType == BOSS) {
+			mobDMG *= 3;
 		}
-		totalDMG = (mobDMG * (1 + (mobType / 100)));
+		totalDMG = (mobDMG * (1 + (mobType / 20)));
 		return totalDMG;
 	}
 

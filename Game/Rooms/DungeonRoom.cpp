@@ -1,43 +1,58 @@
 #include "DungeonRoom.h"
-#include "Room.h"
-#include "DungeonTable.h"
-#include "combat.h"
-#include <stdio.h>     
-#include <stdlib.h>   
-#include <time.h> 
 
 play_state DungeonRoom::play(int choice)
 {
+	statusString->clear();
+	statusString->resize(3);
 	if(choice == -1)
 	{
-		if (RoomMonster->getCurrentHP() != 0)
+		if (RoomMonster->getCurrentHP() > 0)
 		{
-			combat(main, RoomMonster);
+			combat(main, RoomMonster, statusString);
 			return play_state::CONTINUE;
 		}
-		else if(RoomMonster->getCurrentHP() == 0)
+		else if(RoomMonster->getCurrentHP() <= 0)
 		{
-			RoomMonster->getLoot()->generate();
-			drop["loot"] = "Dropped a [item name]!";
-			return play_state::LOOT;
+			LootComponent *loottablecomp = RoomMonster->getLoot();
+			if(loottablecomp == nullptr)
+			{
+				statusString->at(1) = "There's no drop unlucky!";
+				return play_state::DONE;
+			}
+			else
+			{
+				dropped_item = loottablecomp->generate();
+				statusString->at(1) = "Dropped a " + dropped_item->description()
+					+ dropped_item->get_name();
+				return play_state::LOOT;
+			}
 		}
 	}
-	else if(choice != -1)
+	else if(choice == 1)
 	{
-		std::cout << "Got loot! from choice: " << choice << std::endl;
+		statusString->at(1) = "Equipped " + dropped_item->description()
+						+ dropped_item->get_name();
+		bool wep = dropped_item->get_base_stat().first == StatType::DMG;
+		if(wep)
+			main->setWeapon(dropped_item);
+		else
+			main->setArmor(dropped_item);
 		return play_state::DONE;
 	}
+	else if(choice == 2)
+	{
+		statusString->at(1) = "Left " + dropped_item->description()
+								+ dropped_item->get_name();
+		return play_state::DONE;
+	}
+
 	return play_state::CONTINUE;
 }
 
-map<string, string> DungeonRoom::get_drop()
-{
-	return drop;
-}
 
-Equipment * DungeonRoom::getLoot()
+Equipment * DungeonRoom::getEquip()
 {
-	return 	RoomMonster->getLoot()->generate();
+	return 	dropped_item;
 }
 
 Mob * DungeonRoom::getMob()

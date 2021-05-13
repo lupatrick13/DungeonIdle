@@ -9,31 +9,35 @@ using namespace std;
 class Player: public Entity
 {
 private:
-	int exp;
+
 	int levelUp;
 	//int bossRoomCounter;
 	pair<Equipment*, Equipment*> set; //first is ARMOR, second is WEAPON
-	int gold;
+	void level_up();
+
 
 public:
 	Player();
 	virtual ~Player() {}
-	int getEXP() {
-		return exp;
-	};
-	void setEXP(int e);
+	void setEXP(float e);
 	// int getBossRoomCounter(){
 	// 	return bossRoomCounter;
 	// }
 
-	int combatDMG() {
-		int playerDMG, totalDMG = 0;
+	float combatDMG() {
+		bool hasweapon = set.second != nullptr;
+		float playerDMG, totalDMG = 0;
 		playerDMG = stats[StatType::DMG] + stats[StatType::MAG] + stats[StatType::STR];
-		int weaponBaseDMG = static_cast<int>(set.second->get_base_stat().second);
-		std::map<int, float> addDMG = set.second->get_additional();
-		int weaponAddDMG = static_cast<int>(addDMG[StatType::DMG]);
 
-		totalDMG = playerDMG + weaponBaseDMG + weaponAddDMG;
+		float weaponBaseDMG = 0, weaponAddDMG = 0;
+		if(hasweapon)
+		{
+			weaponBaseDMG = (set.second->get_base_stat().second);
+			std::map<int, float> addDMG = set.second->get_additional();
+			weaponAddDMG = (addDMG[StatType::DMG] + addDMG[StatType::MAG]);
+		}
+
+		totalDMG = RANDOM_REAL(0.7,1.1) * playerDMG + RANDOM_REAL(0.9,1.05) * weaponBaseDMG + weaponAddDMG;
 		return totalDMG;
 	}
 
@@ -44,8 +48,8 @@ public:
 		stats[StatType::STR] += i;
 		stats[StatType::AGI] += i;
 		stats[StatType::DMG] += i;
-		HP.first += i;
-		HP.second += i;
+		HP.first += i*30;
+		HP.second += i*30;
 	}
 
 	void setArmor(Equipment* a){
@@ -68,16 +72,10 @@ public:
 
 	void setGold(int i){
 		gold += i;
+		gold = gold < 0 ? 0 : gold;
 	}
 
-	int getGold(){
-		return gold;
-	}
-
-	
-
-
-
+	int getLevelUpExp(){ return levelUp; }
 	//Equipment* combat(entity* opponent);
 
 };

@@ -9,21 +9,28 @@
 #define GUI_PlayerSTATPAGE_PlayerSTATPAGE_H_
 
 #include "EquipmentInfoPanel.h"
-#include "EquipmentInfoPanel.h"
+#include "../GameStatPage/GameStatPage.h"
 
 class PlayerStatPage: public wxPanel{
 public:
-	PlayerStatPage(wxNotebook *parent, Player *parent_char): wxPanel(parent, wxID_ANY),
-		main(parent_char)
+	PlayerStatPage(wxNotebook *parent, DungeonIdle *parent_char): wxPanel(parent, wxID_ANY),
+		game(parent_char)
 	{
+		main = game->getPlayer();
 		init();
 	};
 	virtual ~PlayerStatPage() {}
-	void update_armor(Equipment *neweqp){armor->update(neweqp); }
-	void update_weapon(Equipment *neweqp){weapon->update(neweqp); }
+	void update()
+	{
+		armor->update(main->getSet().first);
+		weapon->update(main->getSet().second);
+		gamestats->update();
+	}
 private:
 	void init();
+	DungeonIdle *game;
 	Player *main;
+	GameStatPage *gamestats;
 	EquipmentInfoPanel *armor;
 	EquipmentInfoPanel *weapon;
 };

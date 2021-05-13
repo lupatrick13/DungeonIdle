@@ -2,22 +2,22 @@
 #define _BOSSROOM_
 #pragma once
 #include "Room.h"
-#include "BossTable.h"
+#include "./LootTables/BossTable.h"
+
 class BossRoom: public Room
 {
 private: 
-	map<string, string> drop;
-	Equipment * loot;
+	Equipment * dropped_item;
 public:
 	BossRoom(Player* parent) : Room(parent)
 	{
-		Mob *RoomMonster = new Mob( BOSS, "Daddy", BossTable(main->getLevel()), main->getLevel());
+		RoomMonster = new Mob( BOSS, "Daddy", BossTable(main->getLevel()), main->getLevel());
+		dropped_item = nullptr;
 	}
 	virtual ~BossRoom() {}
 	virtual play_state play(int choice = -1);
 	virtual room_type get_type() { return room_type::BOSS_S; }
-	virtual map<string, string> get_drop();
-	virtual Equipment * getLoot();
+	virtual Equipment * getEquip();
 	virtual Mob * getMob();
 };
 

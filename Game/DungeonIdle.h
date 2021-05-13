@@ -28,13 +28,15 @@ public:
 	int getBosses_defeated() { return bosses_defeated;}
 	int getBossCd() {return boss_cd; }
 	int getShopChance() { return shop_chance; }
+	Mob* getMob() { return curr_room->getMob();}
 	room_type getRoomType(){ return roomtype; };
 	std::vector<room_type> get_choice() {return choices;}
 	Player *getPlayer() { return main; }
+	Equipment *getEqp() { return curr_room->getEquip(); }
 
 	void generate_choice();
 	room_type generate_room(int choice);
-	map<string, string> get_loot() { return curr_room->get_loot();}
+	vector<string> *get_status() { return curr_room->get_Status(); }
 private:
 	Player *main;
 	Room *curr_room;

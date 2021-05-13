@@ -10,8 +10,6 @@
 void GameStatPage::init()
 {
 	wxSizer *main_sizer = new wxBoxSizer(wxVERTICAL);
-	wxStaticText *title = new wxStaticText(this, wxID_ANY, wxString("Game Stats!"));
-	title->SetFont(title->GetFont().Bold().Larger());
 
 	wxPanel *stat_panel = new wxPanel(this, wxID_ANY);
 	wxSizer *stat_sizer = new wxGridSizer(2,2,0);
@@ -42,7 +40,6 @@ void GameStatPage::init()
 	stat_sizer->Add(shop_chance);
 	stat_panel->SetSizer(stat_sizer);
 
-	main_sizer->Add(title, 0, wxALIGN_CENTER_HORIZONTAL, 0);
 	main_sizer->Add(stat_panel);
 
 	SetSizer(main_sizer);
@@ -50,10 +47,10 @@ void GameStatPage::init()
 
 void GameStatPage::update()
 {
-	string tot_rooms = to_string(game->getRoomsCleared()),
-			tot_boss = to_string(game->getBosses_defeated()),
+	string tot_rooms = to_string(game->getRoomsCleared()) + " ",
+			tot_boss = to_string(game->getBosses_defeated()) + " ",
 			cur_sh_ch = to_string(game->getShopChance()) + "% ",
-			curr_r = GET_ROOM(game->getRoomType());
+			curr_r = GET_ROOM(game->getRoomType()) + " ";
 
 	current_room->SetLabel(curr_r);
 	rooms_cleared->SetLabel(tot_rooms);

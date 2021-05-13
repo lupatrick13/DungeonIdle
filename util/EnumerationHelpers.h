@@ -26,9 +26,9 @@ enum Rarity : int
 	epic = 5, legendary = 20
 };
 
-enum MobType
+enum MobType : int
 {
-	BOSS, REG
+	BOSS= 1, REG = 0
 };
 
 static EqpPrefix ALL_PREFIX[3] = {perfect, sharp, none};

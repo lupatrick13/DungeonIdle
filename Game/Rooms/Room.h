@@ -3,6 +3,10 @@
 #pragma once
 #include "../Entity/AllEntity.h"
 #include "../../util/RNG.h"
+#include "../combat/combat.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 enum room_type
 {
@@ -18,18 +22,19 @@ class Room
 {
 public:
 	Room(Player* parent):main(parent), RoomMonster(nullptr)
-	{}
+	{
+		statusString = new vector<string>(3);
+	}
 	virtual ~Room() {}
 	virtual play_state play(int choice = -1) { return play_state::CONTINUE; }
 	virtual room_type get_type() { return room_type::DUNGEON_S; }
-	virtual map<string, string> get_drop() =0;
-	string get_Status(){return statusString;}
-	virtual Equipment * getLoot();
-	virtual Mob * getMob();
+	vector<std::string> *get_Status(){return statusString;}
+	virtual Equipment * getEquip() = 0;
+	virtual Mob * getMob() = 0;
 protected:
 	Player *main;
 	Mob *RoomMonster;
-	string statusString;
+	vector<std::string> *statusString;
 };
 
 #endif

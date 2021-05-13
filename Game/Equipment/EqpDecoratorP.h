@@ -34,8 +34,8 @@ public:
 	virtual std::map<int, float> get_additional()
 	{
 		map<int, float> additionals = get_wrapped()->get_additional();;
-		additionals[STR] += 2;
-		additionals[DMG] += 40;
+		additionals[STR] *= 1.05;
+		additionals[DMG] *= 1.4;
 		return additionals;
 	}
 };
@@ -53,11 +53,11 @@ public:
 	virtual std::map<int, float> get_additional()
 	{
 		map<int, float> additionals = get_wrapped()->get_additional();
-		additionals[STR] += 20;
-		additionals[AGI] += 20;
-		additionals[DEX] += 20;
-		additionals[DMG] += 400;
-		additionals[ARMOR] += 400;
+		additionals[STR] *= 1.6;
+		additionals[AGI] *= 1.6;
+		additionals[DEX] *= 1.6;
+		additionals[DMG] *= 1.6;
+		additionals[ARMOR] += 1.6;
 		return additionals;
 	}
 };
